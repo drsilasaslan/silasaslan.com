@@ -21,10 +21,9 @@ export default function TestPage() {
       {/* iFrame Content */}
       <main className="w-full">
         <iframe
-          src="https://wp.silasaslan.com/wordpress/?page_id=23"
-          style={{ width: '100%', minHeight: '80vh', border: 'none' }}
+          src="https://wp.silasaslan.com/wordpress/?page_id=7"
+          style={{ width: '100%', height: '100vh', border: 'none' }}
           loading="lazy"
-          title="WordPress Testseite"
         />
       </main>
     </div>

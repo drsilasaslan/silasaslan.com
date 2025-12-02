@@ -23,7 +23,7 @@ export default function InternPage() {
       {/* iFrame Content */}
       <main className="w-full">
         <iframe
-          src="https://wp.silasaslan.com/wordpress/?page_id=23"
+          src="https://wp.silasaslan.com/wordpress/?page_id=11"
           style={{ width: '100%', minHeight: '80vh', border: 'none' }}
           loading="lazy"
           title="Interner Bereich"

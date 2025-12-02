@@ -62,11 +62,8 @@ if [ "${DRY_RUN:-false}" = "true" ]; then
 fi
 
 # Mirror command options
-MIRROR_OPTS="--reverse --verbose --parallel=${PARALLEL:-1}"
-
-if [ "${DELETE_REMOTE:-false}" = "true" ]; then
-  MIRROR_OPTS="$MIRROR_OPTS --delete"
-fi
+# Always delete old files to prevent stale chunk errors, but NEVER delete wordpress folder
+MIRROR_OPTS="--reverse --verbose --parallel=${PARALLEL:-1} --delete --exclude wordpress/"
 
 # Build exclude patterns from .deployignore
 EXCLUDE_OPTS=""
