@@ -1,0 +1,31 @@
+# Secrets & Environment
+.env
+.env.local
+.env.production
+.env.development
+
+# Git
+.git
+.gitignore
+
+# Development
+node_modules
+src
+
+# Build artifacts (we only want 'out/')
+.next
+
+# IDE & OS
+.DS_Store
+.vscode
+.idea
+
+# Scripts & Config
+deploy_landingpage.sh
+.deployignore
+
+# WordPress Theme Files (deployed separately)
+wordpress-theme
+
+# Documentation
+README.md
