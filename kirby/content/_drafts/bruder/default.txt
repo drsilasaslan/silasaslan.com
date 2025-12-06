@@ -1,0 +1,53 @@
+Title: Brüder
+
+----
+
+Hero-kicker: Brudertestseite
+
+----
+
+Hero-title: Brudertest
+
+----
+
+Hero-intro: Das dürfen nur Brüder sehen ;D
+
+----
+
+Spotlight-label: 
+
+----
+
+Spotlight-text: 
+
+----
+
+Upcoming-title: 
+
+----
+
+Upcoming-date: 
+
+----
+
+Upcoming-location: 
+
+----
+
+Upcoming-description: 
+
+----
+
+Highlight-cards:
+
+- 
+  title: ""
+  text: ""
+
+----
+
+Body: 
+
+----
+
+Uuid: spuawzjunnxvlc91

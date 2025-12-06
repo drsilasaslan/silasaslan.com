@@ -1,0 +1,57 @@
+Title: Meine Vorlesungen
+
+----
+
+Hero-kicker: Test
+
+----
+
+Hero-title: Hallo
+
+----
+
+Hero-intro: 
+
+----
+
+Spotlight-label: 
+
+----
+
+Spotlight-text: 
+
+----
+
+Upcoming-title: 
+
+----
+
+Upcoming-date: 
+
+----
+
+Upcoming-location: 
+
+----
+
+Upcoming-description: 
+
+----
+
+Highlight-cards: 
+
+----
+
+Body: 
+
+----
+
+Text:
+
+Nächster Auftritt
+
+KI-Ready Konferenz im Juni 2026
+
+----
+
+Uuid: maawf9qt1n9jwlce
