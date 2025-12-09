@@ -1,2 +1,2 @@
-47c6ea84bd2606c2556529b462ee0f499f29f1aa81b53bfb11d886ed15349aec
-a:7:{s:9:"startTime";i:1765017279;s:10:"expiryTime";i:1766227550;s:8:"duration";i:1209600;s:7:"timeout";b:0;s:12:"lastActivity";N;s:9:"renewable";b:1;s:4:"data";a:2:{s:10:"kirby.csrf";s:64:"e140251a5bbd881d77d6d4245713b473ed36cd4295563df4de6c26f63d030856";s:10:"panel.path";s:0:"";}}
+2bb227078f4ef96c1e39874bb5ef40b79a4a0f7022187edc0b916679394e4b1b
+a:4:{s:9:"startTime";i:1765017279;s:10:"expiryTime";i:1765021896;s:10:"newSession";s:31:"1766227550.9741a8dc00db97390cdf";s:13:"newSessionKey";s:237:"{"mode":"secretbox","data":"1eDnYchthLb/rhH11LIB/MNSVpqugluNQ8qLLVWVRSRlJqSzno0skVDpxm503uph0WLQqyoR+DUk5jJPuo2UDk0Eg9D6FGzKaQQNklMVo6E=","nonce":"OCnz5f/2z+5nbQKG85S2Tw2zVtjejSjk","salt":"uFo3Hq9cjbSxxYV8NUrlYg==","limits":[2,67108864]}";}
