@@ -1,18 +1,17 @@
 <?php
 
-$kirbyRoot = __DIR__ . '/kirby';
-$router    = $kirbyRoot . '/kirby/router.php';
+/**
+ * Kirby Router für PHP Built-in Server
+ * Startet mit: php -S localhost:6758 router.php
+ */
 
-if (is_file($router) === false) {
-    http_response_code(500);
-    echo "Kirby router.php konnte nicht gefunden werden.";
-    return;
+$path = $_SERVER['REQUEST_URI'];
+$file = __DIR__ . parse_url($path, PHP_URL_PATH);
+
+// Statische Dateien direkt ausliefern
+if (is_file($file)) {
+    return false;
 }
 
-chdir($kirbyRoot);
-$_SERVER['DOCUMENT_ROOT'] = $kirbyRoot;
-$_SERVER['SCRIPT_FILENAME'] = $kirbyRoot . '/index.php';
-$_SERVER['SCRIPT_NAME'] = '/index.php';
-$_SERVER['PHP_SELF'] = $_SERVER['SCRIPT_NAME'];
-
-require $router;
+// Alle anderen Requests an Kirby weiterleiten
+require __DIR__ . '/index.php';
