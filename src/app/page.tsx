@@ -5,6 +5,7 @@ import Expertise from '@/components/Expertise';
 import Career from '@/components/Career';
 import Patents from '@/components/Patents';
 import Speaking from '@/components/Speaking';
+import HackathonCTA from '@/components/HackathonCTA';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
@@ -19,6 +20,7 @@ export default function Home() {
         <Career />
         <Patents />
         <Speaking />
+        <HackathonCTA />
         <Contact />
       </main>
       <Footer />

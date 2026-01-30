@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Gurken-Quest</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #eaffea; padding: 20px; }
+    h1 { color: #3b8b3b; }
+    .shop, .gurken, .magie { border: 2px dashed #4caf50; padding: 15px; margin-bottom: 20px; border-radius: 10px; background: #f0fff0; }
+    button { padding: 10px; margin: 5px; cursor: pointer; background: #a5d6a7; border: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+  <h1>🥒 Die Gurken-Quest</h1>
+
+  <div class="shop">
+    <h2>🛒 Der Gurkenladen</h2>
+    <p>Kaufe hier deine liebsten Gewürzgurken!</p>
+    <button onclick="kaufen('Knoblauch-Gurke')">Knoblauch-Gurke kaufen</button>
+    <button onclick="kaufen('Dill-Gurke')">Dill-Gurke kaufen</button>
+    <button onclick="kaufen('Feurige Chili-Gurke')">Chili-Gurke kaufen</button>
+  </div>
+
+  <div class="gurken">
+    <h2>🥒 Dein Gurkenlager</h2>
+    <ul id="lager"></ul>
+  </div>
+
+  <div class="magie">
+    <h2>🦝 Magier Waschbär Kevin</h2>
+    <p><em>"Ich bin Kevin, der allwissende Waschbär! Ich tausche 3 Gurken gegen eine Banane der Weisheit."</em></p>
+    <button onclick="tauschen()">Gurken gegen Banane tauschen</button>
+    <p id="bananen"></p>
+  </div>
+
+  <script>
+    const lager = [];
+    let bananen = 0;
+
+    function kaufen(sorte) {
+      lager.push(sorte);
+      anzeigen();
+    }
+
+    function anzeigen() {
+      const ul = document.getElementById('lager');
+      ul.innerHTML = '';
+      lager.forEach((g, i) => {
+        const li = document.createElement('li');
+        li.textContent = `${i + 1}. ${g}`;
+        ul.appendChild(li);
+      });
+    }
+
+    function tauschen() {
+      if (lager.length >= 3) {
+        lager.splice(0, 3);
+        bananen++;
+        document.getElementById('bananen').textContent = `🍌 Bananen der Weisheit: ${bananen}`;
+        anzeigen();
+      } else {
+        alert("Du brauchst mindestens 3 Gurken!");
+      }
+    }
+  </script>
+
+</body>
+</html>

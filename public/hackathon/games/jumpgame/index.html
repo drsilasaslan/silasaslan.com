@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jump Game</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; overflow: hidden; background: #FFFFFF; }
+        canvas { display: block; }
+        .back-link {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            z-index: 100;
+        }
+        .back-link:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .instructions {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 100;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <a href="/hackathon/" class="back-link">Zurück zur Übersicht</a>
+    <div class="instructions">
+        <h3>Anleitung:</h3>
+        <p>Drücke die Leertaste zum Springen</p>
+        <p>Sammle gelbe Ballons, um höher zu springen</p>
+        <p>Sammle blaue Power-Ups für mehr Geschwindigkeit</p>
+        <p>Vermeide die grünen Hindernisse!</p>
+    </div>
+    <canvas id="gameCanvas"></canvas>
+
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let player = { 
+            x: 100, 
+            y: canvas.height - 100, 
+            width: 50, 
+            height: 50, 
+            dy: 0, 
+            gravity: 0.6, 
+            jumpPower: -18, 
+            speed: 5, 
+            onGround: false 
+        };
+
+        let obstacles = [];
+        let items = [];
+        let powerups = [];
+        let gameSpeed = 3;
+        let score = 0;
+
+        document.addEventListener("keydown", (e) => {
+            if (e.code === "Space" && player.onGround) {
+                player.dy = player.jumpPower;
+                player.onGround = false;
+            }
+        });
+
+        function spawnObstacle() {
+            let width = Math.random() * 20 + 20;
+            let height = Math.random() * 40 + 30;
+            obstacles.push({ x: canvas.width, y: canvas.height - height, width, height });
+        }
+
+        function spawnItem() {
+            items.push({ x: canvas.width, y: canvas.height - 150, width: 30, height: 30, type: "balloon" });
+        }
+
+        function spawnPowerup() {
+            let color = Math.random() > 0.5 ? "#ADD8E6" : "#87CEEB"; // Hell Aquarell Blau oder Hellblau
+            powerups.push({ x: canvas.width, y: canvas.height - 150, width: 30, height: 30, color });
+        }
+
+        function update() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            player.dy += player.gravity;
+            player.y += player.dy;
+            player.onGround = false;
+
+            if (player.y > canvas.height - 100) {
+                player.y = canvas.height - 100;
+                player.onGround = true;
+            }
+
+            // Spieler zeichnen (Dunkelblau)
+            ctx.fillStyle = "#00008B";
+            ctx.fillRect(player.x, player.y, player.width, player.height);
+
+            // Hindernisse bewegen & zeichnen (Grellgrün)
+            obstacles.forEach((obs, i) => {
+                obs.x -= gameSpeed;
+                if (obs.x + obs.width < 0) obstacles.splice(i, 1);
+                ctx.fillStyle = "#00FF00";
+                ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
+
+                // Kollisionserkennung für drauf stehen
+                if (
+                    player.x < obs.x + obs.width &&
+                    player.x + player.width > obs.x &&
+                    player.y + player.height > obs.y &&
+                    player.y + player.height < obs.y + obs.height + 10
+                ) {
+                    player.y = obs.y - player.height;
+                    player.dy = 0;
+                    player.onGround = true;
+                }
+
+                // Game Over, wenn man seitlich dagegenläuft
+                if (
+                    player.x + player.width > obs.x &&
+                    player.x < obs.x + obs.width &&
+                    player.y + player.height >= obs.y
+                ) {
+                    alert("Game Over! Dein Score: " + score);
+                    document.location.reload();
+                }
+            });
+
+            // Items bewegen & zeichnen (Gelb)
+            items.forEach((item, i) => {
+                item.x -= gameSpeed;
+                if (item.x + item.width < 0) items.splice(i, 1);
+                ctx.fillStyle = "yellow";
+                ctx.fillRect(item.x, item.y, item.width, item.height);
+
+                // Einsammeln
+                if (
+                    player.x < item.x + item.width &&
+                    player.x + player.width > item.x &&
+                    player.y < item.y + item.height &&
+                    player.y + player.height > item.y
+                ) {
+                    player.y -= 100;
+                    items.splice(i, 1);
+                }
+            });
+
+            // Powerups bewegen & zeichnen (Hell Aquarell Blau & Hellblau)
+            powerups.forEach((pwr, i) => {
+                pwr.x -= gameSpeed;
+                if (pwr.x + pwr.width < 0) powerups.splice(i, 1);
+                ctx.fillStyle = pwr.color;
+                ctx.fillRect(pwr.x, pwr.y, pwr.width, pwr.height);
+
+                // Einsammeln
+                if (
+                    player.x < pwr.x + pwr.width &&
+                    player.x + player.width > pwr.x &&
+                    player.y < pwr.y + pwr.height &&
+                    player.y + player.height > pwr.y
+                ) {
+                    gameSpeed += 1.5;
+                    powerups.splice(i, 1);
+                }
+            });
+
+            // Score erhöhen & anzeigen
+            score++;
+            ctx.fillStyle = "black";
+            ctx.font = "20px Arial";
+            ctx.fillText("Score: " + score, 20, 30);
+
+            // Schwierigkeit erhöhen
+            if (score % 500 === 0) gameSpeed += 0.5;
+
+            requestAnimationFrame(update);
+        }
+
+        setInterval(spawnObstacle, 1500);
+        setInterval(spawnItem, 5000);
+        setInterval(spawnPowerup, 7000);
+
+        update();
+    </script>
+</body>
+</html>

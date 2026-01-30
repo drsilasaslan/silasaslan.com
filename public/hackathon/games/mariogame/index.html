@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Platformer Fixed</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #000;
+    }
+    #game {
+      position: relative;
+      width: 5000px;
+      height: 100vh;
+      background: linear-gradient(to bottom, #339, #111);
+    }
+    #player {
+      width: 40px;
+      height: 60px;
+      background: red;
+      position: absolute;
+      z-index: 10;
+    }
+    .platform, .powerup {
+      position: absolute;
+    }
+    .platform {
+      width: 200px;
+      height: 20px;
+      background: #444;
+    }
+    .powerup {
+      width: 20px;
+      height: 20px;
+      background: yellow;
+      border-radius: 50%;
+    }
+    #gameOver {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.85);
+      color: white;
+      font-size: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      display: none;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+  <div id="game">
+    <div id="player"></div>
+  </div>
+  <div id="gameOver">GAME OVER<br><small style="font-size: 24px;">Neuladen zum Neustart</small></div>
+  <script>
+    const game = document.getElementById("game");
+    const player = document.getElementById("player");
+    const gameOver = document.getElementById("gameOver");
+
+    let x = 100, y = 300, vx = 0, vy = 0;
+    let grounded = false;
+    let scrollX = 0;
+    let speed = 5;
+    let alive = true;
+
+    const keys = { left: false, right: false, up: false, attack: false };
+    document.addEventListener("keydown", e => {
+      if (e.key === "ArrowLeft") keys.left = true;
+      if (e.key === "ArrowRight") keys.right = true;
+      if (e.key === " " || e.key === "ArrowUp") keys.up = true;
+      if (e.key === "z") keys.attack = true;
+    });
+    document.addEventListener("keyup", e => {
+      if (e.key === "ArrowLeft") keys.left = false;
+      if (e.key === "ArrowRight") keys.right = false;
+      if (e.key === " " || e.key === "ArrowUp") keys.up = false;
+      if (e.key === "z") keys.attack = false;
+    });
+
+    // Plattformen und Powerups im Code definieren
+    const platforms = [
+      { x: 100, y: 400 },
+      { x: 350, y: 300 },
+      { x: 650, y: 250 },
+      { x: 950, y: 300 },
+      { x: 1250, y: 350 },
+      { x: 1550, y: 400 }
+    ];
+    const powerups = [
+      { x: 680, y: 220, active: true }
+    ];
+
+    // DOM erzeugen
+    platforms.forEach(p => {
+      const div = document.createElement("div");
+      div.className = "platform";
+      div.style.left = p.x + "px";
+      div.style.top = p.y + "px";
+      game.appendChild(div);
+    });
+
+    powerups.forEach(p => {
+      const div = document.createElement("div");
+      div.className = "powerup";
+      div.style.left = p.x + "px";
+      div.style.top = p.y + "px";
+      p.el = div;
+      game.appendChild(div);
+    });
+
+    function gameLoop() {
+      if (!alive) return;
+
+      // Bewegung
+      vx = keys.left ? -speed : keys.right ? speed : 0;
+      if (keys.up && grounded) {
+        vy = -12;
+        grounded = false;
+      }
+
+      // Physik
+      vy += 0.6; // Gravitation
+      x += vx;
+      y += vy;
+
+      grounded = false;
+      platforms.forEach(p => {
+        if (
+          x + 40 > p.x &&
+          x < p.x + 200 &&
+          y + 60 > p.y &&
+          y + 60 < p.y + 20 &&
+          vy >= 0
+        ) {
+          y = p.y - 60;
+          vy = 0;
+          grounded = true;
+        }
+      });
+
+      // Powerup check
+      powerups.forEach(p => {
+        if (
+          p.active &&
+          x + 40 > p.x &&
+          x < p.x + 20 &&
+          y + 60 > p.y &&
+          y < p.y + 20
+        ) {
+          p.active = false;
+          p.el.style.display = "none";
+          speed = 8;
+          player.style.background = "lime";
+          setTimeout(() => {
+            speed = 5;
+            player.style.background = "red";
+          }, 5000);
+        }
+      });
+
+      // Angriff
+      if (keys.attack) {
+        player.style.background = "orange";
+      } else if (speed === 5) {
+        player.style.background = "red";
+      }
+
+      // Game Over
+      if (y > 800) {
+        alive = false;
+        gameOver.style.display = "flex";
+        return;
+      }
+
+      // Scroll mit Kamera
+      scrollX = x - 100;
+      game.style.transform = `translateX(-${scrollX}px)`;
+
+      // Spieler-Position setzen
+      player.style.left = x + "px";
+      player.style.top = y + "px";
+
+      requestAnimationFrame(gameLoop);
+    }
+
+    gameLoop();
+  </script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muppet Shooter</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: skyblue;
+      font-family: Arial, sans-serif;
+      cursor: crosshair;
+    }
+    
+    #game-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    .muppet {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: transform 0.1s;
+    }
+    
+    .miss-piggy {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23ffb6c1"/><circle cx="35" cy="40" r="5" fill="%23000"/><circle cx="65" cy="40" r="5" fill="%23000"/><path d="M 40 60 Q 50 70 60 60" stroke="%23000" stroke-width="3" fill="none"/><ellipse cx="50" cy="45" rx="15" ry="10" fill="%23ff8da1"/></svg>');
+    }
+    
+    .kermit {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23ffd700"/><circle cx="35" cy="35" r="5" fill="%23000"/><circle cx="65" cy="35" r="5" fill="%23000"/><path d="M 40 60 Q 50 70 60 60" stroke="%23000" stroke-width="3" fill="none"/></svg>');
+    }
+    
+    .gonzo {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23c0c0c0"/><circle cx="35" cy="35" r="5" fill="%23000"/><circle cx="65" cy="35" r="5" fill="%23000"/><path d="M 30 40 L 50 60 L 70 40" stroke="%23000" stroke-width="3" fill="none"/></svg>');
+    }
+    
+    .fozzie {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23cd7f32"/><circle cx="35" cy="35" r="5" fill="%23000"/><circle cx="65" cy="35" r="5" fill="%23000"/><path d="M 40 60 Q 50 65 60 60" stroke="%23000" stroke-width="3" fill="none"/><path d="M 20 25 Q 30 15 40 25" stroke="%23000" stroke-width="3" fill="none"/><path d="M 60 25 Q 70 15 80 25" stroke="%23000" stroke-width="3" fill="none"/></svg>');
+    }
+    
+    .ole {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="%23ffffff"/><circle cx="35" cy="35" r="5" fill="%23000"/><circle cx="65" cy="35" r="5" fill="%23000"/><path d="M 40 60 Q 50 55 60 60" stroke="%23000" stroke-width="3" fill="none"/></svg>');
+    }
+    
+    .hit {
+      transform: scale(0);
+      opacity: 0;
+      transition: all 0.3s ease-out;
+    }
+    
+    #score {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    #timer {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    #crosshair {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      pointer-events: none;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="%23ff0000" stroke-width="2"/><line x1="50" y1="10" x2="50" y2="30" stroke="%23ff0000" stroke-width="2"/><line x1="50" y1="70" x2="50" y2="90" stroke="%23ff0000" stroke-width="2"/><line x1="10" y1="50" x2="30" y2="50" stroke="%23ff0000" stroke-width="2"/><line x1="70" y1="50" x2="90" y2="50" stroke="%23ff0000" stroke-width="2"/><circle cx="50" cy="50" r="3" fill="%23ff0000"/></svg>');
+      transform: translate(-50%, -50%);
+    }
+    
+    #controller {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 100px;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100"><rect x="10" y="10" width="180" height="80" rx="10" fill="%23333"/><circle cx="50" cy="50" r="20" fill="%23666"/><circle cx="150" cy="50" r="20" fill="%23666"/><rect x="80" y="40" width="40" height="20" rx="5" fill="%23666"/></svg>');
+      background-repeat: no-repeat;
+      pointer-events: none;
+    }
+    
+    #game-over {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      display: none;
+    }
+    
+    #game-over h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    
+    #final-score {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    
+    #restart-btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    #restart-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <div id="score">Score: 0</div>
+    <div id="timer">Time: 60</div>
+    <div id="crosshair"></div>
+    <div id="controller"></div>
+    <div id="game-over">
+      <h2>Game Over!</h2>
+      <div id="final-score">Your score: 0</div>
+      <button id="restart-btn">Play Again</button>
+    </div>
+  </div>
+
+  <script>
+    // Game variables
+    let score = 0;
+    let timeLeft = 60;
+    let gameActive = true;
+    let muppets = [];
+    
+    // DOM elements
+    const gameContainer = document.getElementById('game-container');
+    const scoreElement = document.getElementById('score');
+    const timerElement = document.getElementById('timer');
+    const crosshair = document.getElementById('crosshair');
+    const gameOverElement = document.getElementById('game-over');
+    const finalScoreElement = document.getElementById('final-score');
+    const restartBtn = document.getElementById('restart-btn');
+    
+    // Muppet types and their point values
+    const muppetTypes = [
+      { type: 'miss-piggy', points: 25, spawnRate: 0.5 },
+      { type: 'kermit', points: 100, spawnRate: 0.1 },  // Golden Kermit
+      { type: 'gonzo', points: 75, spawnRate: 0.15 },   // Silver Gonzo
+      { type: 'fozzie', points: 50, spawnRate: 0.2 },   // Bronze Fozzie
+      { type: 'ole', points: 10, spawnRate: 0.3 }       // White Ole
+    ];
+    
+    // Initialize game
+    function initGame() {
+      score = 0;
+      timeLeft = 60;
+      gameActive = true;
+      muppets = [];
+      
+      // Clear any existing muppets
+      const existingMuppets = document.querySelectorAll('.muppet');
+      existingMuppets.forEach(muppet => muppet.remove());
+      
+      // Update UI
+      scoreElement.textContent = `Score: ${score}`;
+      timerElement.textContent = `Time: ${timeLeft}`;
+      gameOverElement.style.display = 'none';
+      
+      // Start game loop
+      startGameLoop();
+    }
+    
+    // Game loop
+    function startGameLoop() {
+      // Spawn muppets
+      const spawnInterval = setInterval(() => {
+        if (!gameActive) {
+          clearInterval(spawnInterval);
+          return;
+        }
+        
+        spawnMuppet();
+      }, 800);
+      
+      // Timer countdown
+      const timerInterval = setInterval(() => {
+        if (!gameActive) {
+          clearInterval(timerInterval);
+          return;
+        }
+        
+        timeLeft--;
+        timerElement.textContent = `Time: ${timeLeft}`;
+        
+        if (timeLeft <= 0) {
+          gameActive = false;
+          endGame();
+        }
+      }, 1000);
+    }
+    
+    // Spawn a muppet
+    function spawnMuppet() {
+      // Determine which muppet to spawn based on spawn rates
+      const random = Math.random();
+      let cumulativeProbability = 0;
+      let selectedType;
+      
+      for (const muppetType of muppetTypes) {
+        cumulativeProbability += muppetType.spawnRate;
+        
+        if (random <= cumulativeProbability) {
+          selectedType = muppetType;
+          break;
+        }
+      }
+      
+      // Create muppet element
+      const muppet = document.createElement('div');
+      muppet.classList.add('muppet', selectedType.type);
+      
+      // Random position
+      const maxX = gameContainer.clientWidth - 100;
+      const maxY = gameContainer.clientHeight - 100;
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+      
+      muppet.style.left = `${randomX}px`;
+      muppet.style.top = `${randomY}px`;
+      
+      // Add points data
+      muppet.dataset.points = selectedType.points;
+      
+      // Add click event
+      muppet.addEventListener('click', (e) => {
+        if (!gameActive) return;
+        
+        // Prevent multiple clicks
+        e.stopPropagation();
+        
+        // Add points
+        const points = parseInt(muppet.dataset.points);
+        score += points;
+        scoreElement.textContent = `Score: ${score}`;
+        
+        // Show hit animation
+        muppet.classList.add('hit');
+        
+        // Remove muppet after animation
+        setTimeout(() => {
+          muppet.remove();
+        }, 300);
+      });
+      
+      // Add to DOM
+      gameContainer.appendChild(muppet);
+      
+      // Remove muppet after some time if not hit
+      setTimeout(() => {
+        if (muppet.parentElement) {
+          muppet.remove();
+        }
+      }, 2000 + Math.random() * 1000);
+    }
+    
+    // End game
+    function endGame() {
+      gameActive = false;
+      finalScoreElement.textContent = `Your score: ${score}`;
+      gameOverElement.style.display = 'block';
+    }
+    
+    // Track mouse movement for crosshair
+    document.addEventListener('mousemove', (e) => {
+      crosshair.style.left = `${e.clientX}px`;
+      crosshair.style.top = `${e.clientY}px`;
+    });
+    
+    // Prevent default click on game container
+    gameContainer.addEventListener('click', (e) => {
+      // Simulate gunshot sound
+      const audio = new Audio();
+      audio.src = 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAB9AH0AfQA=';
+      audio.play().catch(e => console.log("Audio play prevented by browser"));
+    });
+    
+    // Restart game
+    restartBtn.addEventListener('click', initGame);
+    
+    // Start game on load
+    window.addEventListener('load', initGame);
+  </script>
+</body>
+</html>

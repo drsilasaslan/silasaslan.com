@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pong Deluxe</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    canvas {
+      border: 4px solid #fff;
+      background: #111;
+      margin-top: 20px;
+      box-shadow: 0 0 20px #0ff;
+    }
+    h1, h2 {
+      margin: 10px;
+      text-shadow: 0 0 5px #000;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔥 Pong Deluxe 🔥</h1>
+  <h2>🏆 Highscore: <span id="highscore">0</span> | ❌ Fehler: <span id="errors">0</span></h2>
+  <canvas id="gameCanvas" width="600" height="400"></canvas>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let paddle = { x: canvas.width / 2 - 50, y: canvas.height - 15, width: 100, height: 10 };
+    let balls = [
+      { x: canvas.width / 2, y: canvas.height / 2, radius: 8, dx: 3, dy: -3, color: '#ff4081' }
+    ];
+    let highscore = 0;
+    let errors = 0;
+    let gameOver = false;
+
+    document.addEventListener('mousemove', e => {
+      let rect = canvas.getBoundingClientRect();
+      paddle.x = e.clientX - rect.left - paddle.width / 2;
+    });
+
+    function drawPaddle() {
+      ctx.fillStyle = '#00e676';
+      ctx.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
+    }
+
+    function drawBall(ball) {
+      ctx.beginPath();
+      ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+      ctx.fillStyle = ball.color;
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function addBall() {
+      if (balls.length < 5) {
+        balls.push({
+          x: canvas.width / 2,
+          y: canvas.height / 2,
+          radius: 8,
+          dx: 3 * (Math.random() > 0.5 ? 1 : -1),
+          dy: -3,
+          color: `hsl(${Math.floor(Math.random() * 360)}, 100%, 60%)`
+        });
+      }
+    }
+
+    function updateBall(ball, i) {
+      ball.x += ball.dx;
+      ball.y += ball.dy;
+
+      if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+        ball.dx *= -1;
+      }
+      if (ball.y - ball.radius < 0) {
+        ball.dy *= -1;
+      }
+
+      if (
+        ball.y + ball.radius >= paddle.y &&
+        ball.x > paddle.x &&
+        ball.x < paddle.x + paddle.width
+      ) {
+        ball.dy *= -1;
+        highscore++;
+        document.getElementById('highscore').textContent = highscore;
+
+        if (highscore % 5 === 0) {
+          ball.dx *= 1.1;
+          ball.dy *= 1.1;
+        }
+
+        if (highscore % 10 === 0) {
+          addBall();
+        }
+      }
+
+      if (ball.y + ball.radius > canvas.height) {
+        balls.splice(i, 1);
+        errors++;
+        document.getElementById('errors').textContent = errors;
+        if (errors >= 3) {
+          alert('💥 Spiel vorbei! Dein Highscore: ' + highscore);
+          gameOver = true;
+        } else {
+          addBall(); // Ersatzball hinzufügen
+        }
+      }
+    }
+
+    function draw() {
+      if (gameOver) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawPaddle();
+
+      for (let i = balls.length - 1; i >= 0; i--) {
+        drawBall(balls[i]);
+        updateBall(balls[i], i);
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+  </script>
+</body>
+</html>

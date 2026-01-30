@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Game - Hackathon Spiel</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+    canvas {
+      display: block;
+      background: #bae7ff; /* Babyblau für die Straße */
+    }
+    .score {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      font-size: 20px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+    .back-link {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 8px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+      z-index: 100;
+    }
+    .back-link:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+    .instructions {
+      position: absolute;
+      top: 50px;
+      left: 10px;
+      color: white;
+      font-size: 16px;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 5px;
+      display: none;
+    }
+    .instructions.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="score">Score: <span id="score">0</span></div>
+  <a href="/hackathon/" class="back-link">Zurück zur Übersicht</a>
+  <div class="instructions" id="instructions">
+    <h3>Steuerung:</h3>
+    <p>← Pfeil links: Nach links fahren</p>
+    <p>→ Pfeil rechts: Nach rechts fahren</p>
+    <p>Gelbe Hindernisse ausweichen!</p>
+    <p>Grüne Power-Ups einsammeln für mehr Geschwindigkeit!</p>
+  </div>
+  <canvas id="gameCanvas"></canvas>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const instructions = document.getElementById('instructions');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Show instructions for 5 seconds when game starts
+    instructions.classList.add('show');
+    setTimeout(() => {
+      instructions.classList.remove('show');
+    }, 5000);
+
+    let score = 0;
+    let car = { x: canvas.width / 2 - 25, y: canvas.height - 100, width: 50, height: 100, speed: 5 };
+    let obstacles = [];
+    let boosts = [];
+    let gameInterval, boostSound;
+
+    // Load sounds
+    const loadSounds = () => {
+      boostSound = new Audio('https://www.soundjay.com/button/beep-07.wav');
+    };
+
+    loadSounds();
+
+    // Draw car
+    const drawCar = () => {
+      ctx.fillStyle = 'white'; // Weißes Auto
+      ctx.fillRect(car.x, car.y, car.width, car.height);
+    };
+
+    // Draw obstacles
+    const drawObstacles = () => {
+      ctx.fillStyle = '#00008B'; // Dunkelblau für Straßensperren
+      obstacles.forEach(obs => {
+        ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
+      });
+    };
+
+    // Draw boosts
+    const drawBoosts = () => {
+      ctx.fillStyle = '#87CEFA'; // Hellblau für Booster
+      boosts.forEach(boost => {
+        ctx.fillRect(boost.x, boost.y, boost.width, boost.height);
+      });
+    };
+
+    // Move car
+    const moveCar = (e) => {
+      if (e.key === 'ArrowLeft' && car.x > 0) car.x -= car.speed;
+      if (e.key === 'ArrowRight' && car.x + car.width < canvas.width) car.x += car.speed;
+    };
+
+    window.addEventListener('keydown', moveCar);
+
+    // Update game
+    const updateGame = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Move obstacles
+      obstacles.forEach(obs => {
+        obs.y += 4;
+        if (obs.y > canvas.height) {
+          obs.y = -50;
+          obs.x = Math.random() * (canvas.width - 50);
+          score += 1;
+        }
+
+        // Collision detection
+        if (
+          car.x < obs.x + obs.width &&
+          car.x + car.width > obs.x &&
+          car.y < obs.y + obs.height &&
+          car.height + car.y > obs.y
+        ) {
+          clearInterval(gameInterval);
+          alert('Game Over! Dein Score: ' + score);
+          document.location.reload();
+        }
+      });
+
+      // Move boosts
+      boosts.forEach((boost, index) => {
+        boost.y += 4;
+        if (boost.y > canvas.height) boosts.splice(index, 1);
+
+        // Collision with car
+        if (
+          car.x < boost.x + boost.width &&
+          car.x + car.width > boost.x &&
+          car.y < boost.y + boost.height &&
+          car.height + car.y > boost.y
+        ) {
+          car.speed += 2; // Increase speed temporarily
+          setTimeout(() => (car.speed -= 2), 3000); // Reset speed after 3 seconds
+          boosts.splice(index, 1);
+          boostSound.play();
+        }
+      });
+
+      drawCar();
+      drawObstacles();
+      drawBoosts();
+
+      document.getElementById('score').textContent = score;
+    };
+
+    // Spawn obstacles
+    const spawnObstacle = () => {
+      const x = Math.random() * (canvas.width - 50);
+      obstacles.push({ x, y: -50, width: 50, height: 50 });
+    };
+
+    // Spawn boosts
+    const spawnBoost = () => {
+      const x = Math.random() * (canvas.width - 30);
+      boosts.push({ x, y: -50, width: 30, height: 30 });
+    };
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      car.y = canvas.height - 100;
+    });
+
+    // Start game
+    const startGame = () => {
+      gameInterval = setInterval(updateGame, 20);
+      setInterval(spawnObstacle, 2000);
+      setInterval(spawnBoost, 5000);
+    };
+
+    startGame();
+  </script>
+</body>
+</html>

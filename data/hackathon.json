@@ -1,0 +1,256 @@
+{
+  "hero": {
+    "title": "Hackathon Browsergames",
+    "subtitle": "Erstellt von Kindern mit ChatGPT",
+    "introHeading": "Willkommen!",
+    "introParagraphs": [
+      "Auf dieser Seite findest du die Spiele und kreativen Projekte, die während unserer Workshops und Hackathons entstanden sind. Kinder im Alter von 9-14 Jahren haben mit Hilfe von ChatGPT Spiele entwickelt und KI-Kunst erstellt.",
+      "Viel Spaß beim Entdecken!"
+    ]
+  },
+  "about": {
+    "title": "Über den Workshop-Leiter",
+    "name": "Dr. Silas Aslan",
+    "role": "Innovationsmanager & Prokurist bei SWK-Novatec",
+    "image": "/hackathon/images/silas_ausbildungswerkstatt.JPG",
+    "imageAlt": "Dr. Silas Aslan beim Workshop mit Kindern",
+    "paragraphs": [
+      "Jahrgang 1987 und leidenschaftlich engagiert in der Förderung von technischer Bildung für Kinder und Jugendliche. Als Innovationsmanager und Prokurist der SWK-Novatec, einer 100%igen Tochtergesellschaft der Stadtwerke Karlsruhe, bringe ich meine Expertise in den Bereichen Technologie und Innovation in diese Workshops ein.",
+      "In den Workshops und Hackathons vermittle ich Kindern spielerisch den Umgang mit neuen Technologien wie KI und Programmierung. Mein Ziel ist es, die nächste Generation zu inspirieren und ihnen Werkzeuge an die Hand zu geben, mit denen sie die digitale Zukunft aktiv mitgestalten können."
+    ]
+  },
+  "hackathonSectionTitle": "Unsere Workshops & Hackathons",
+  "hackathons": [
+    {
+      "title": "Workshop - 20. September 2024",
+      "description": "Ein kreativer Medien-Workshop mit Kindern im Alter von 9-11 Jahren! Die Teilnehmer:innen lernten, wie man einen Radiobeitrag gestaltet und erstellten ihr erstes KI-Kunstwerk.",
+      "highlights": [
+        {
+          "title": "🎙️ Radiobeitrag",
+          "text": "Die Kinder bereiteten einen Radiobeitrag über Verkehrssicherheit vor, mit Fokus auf die Fahrradprüfung. Sie lernten, authentisch zu sprechen und ihre Botschaft klar zu vermitteln."
+        },
+        {
+          "title": "🚲 Sicherheitstipps",
+          "text": "In ihren Beiträgen teilten die Kinder wichtige Verkehrsregeln und Sicherheitstipps, wie zum Beispiel das Tragen eines Helms beim Fahrradfahren."
+        },
+        {
+          "title": "🎨 Erste KI-Kunst",
+          "text": "Als kreativen Abschluss entwickelten die Kinder die Idee eines fliegenden, eiscremepupsenden Haustieres - ein knuffiger Begleiter, der zum Maskottchen wurde!"
+        }
+      ]
+    },
+    {
+      "title": "Hackathon - 24. Januar 2025",
+      "description": "Ein spannender Hackathon mit 10- bis 15-jährigen Teilnehmern bei den Stadtwerken Karlsruhe! Die Kinder haben nicht nur eine Ampel mit Arduino programmiert, sondern auch Podcasts aufgenommen und ein Browser-Game entwickelt.",
+      "highlights": [
+        {
+          "title": "🎙️ Podcast-Projekt",
+          "text": "Die Teilnehmer interviewten sich gegenseitig über ihre Erfahrungen, Herausforderungen und Lieblingsmomente - vom Programmieren der Ampelbären bis zum Drohnenfliegen!"
+        },
+        {
+          "title": "🎮 Browser-Game",
+          "text": "Nach dem Podcast entwickelten die Kinder gemeinsam ein Rennspiel mit HTML und JavaScript. Sie wählten die Farben selbst aus: ein weißes Auto auf babyblauer Straße, mit hellblauen Boostern und dunkelblauen Hindernissen."
+        }
+      ],
+      "gameIds": [
+        "car-game"
+      ]
+    },
+    {
+      "title": "Hackathon - 31. Januar 2025",
+      "description": "Ein weiterer spannender Hackathon mit technikbegeisterten Kindern im Alter von 10-14 Jahren bei den Stadtwerken Karlsruhe! Die Teilnehmer:innen haben verschiedene Projekte erkundet und umgesetzt.",
+      "highlights": [
+        {
+          "title": "🚦 Arduino & Drohnen",
+          "text": "Die Kinder programmierten eine Ampelsteuerung mit Arduino und erlebten spannende Drohnenflüge mit einem Wettbewerbspiloten!"
+        },
+        {
+          "title": "🎙️ Podcast-Produktion",
+          "text": "Die Gruppe plante einen Podcast über ihre Hackathon-Erlebnisse und lernte alles über gute Interviewfragen und Aufnahmequalität."
+        },
+        {
+          "title": "🎮 Jump & Run Game",
+          "text": "Mit HTML und JavaScript entwickelten die Kinder ein Jump-&-Run-Spiel mit Hindernissen, Power-ups wie Luftballons zum Fliegen und Speed-Boosts. Das Level wird mit der Zeit immer anspruchsvoller!"
+        },
+        {
+          "title": "🍕 KI-Kunstwerk",
+          "text": "Die kreative Idee einer \"Zyklopen-Pizza\" mit Armen, Beinen und rollenden Augen wurde mit KI zum Leben erweckt - ein perfektes Maskottchen für das Jump Game!"
+        }
+      ],
+      "gameIds": [
+        "jump-game"
+      ]
+    },
+    {
+      "title": "Hackathon - 23. Mai 2025 (Gruppe 1)",
+      "description": "Ein kreativer Hackathon mit Kindern im Alter von 10-13 Jahren! Die Teilnehmer:innen haben ein einfaches, aber unterhaltsames Browser-Spiel entwickelt.",
+      "highlights": [
+        {
+          "title": "🧀 Käse Countdown",
+          "text": "Die Kinder haben ein spannendes Countdown-Spiel entwickelt, das die Vorfreude auf Käse thematisiert. Ein einfaches Konzept mit überraschendem Ende!"
+        },
+        {
+          "title": "⏱️ Zeitmessung",
+          "text": "Die Teilnehmer:innen lernten, wie man mit JavaScript einen Countdown programmiert und wie man Weiterleitungen zu anderen Webseiten einbaut."
+        }
+      ],
+      "gameIds": [
+        "kaese-countdown"
+      ]
+    },
+    {
+      "title": "Hackathon - 23. Mai 2025 (Gruppe 2)",
+      "description": "Die zweite Gruppe des Hackathons hat ein interaktives Sammelspiel mit Gurken entwickelt! Die 11-14-jährigen Teilnehmer:innen haben mit viel Kreativität ein lustiges Spiel programmiert.",
+      "highlights": [
+        {
+          "title": "🥒 Gurken-Quest",
+          "text": "Ein unterhaltsames Sammelspiel, bei dem die Spieler verschiedene Gurkensorten kaufen und gegen magische Bananen eintauschen können. Mit dem weisen Waschbär Kevin als Spielcharakter!"
+        },
+        {
+          "title": "💻 JavaScript-Grundlagen",
+          "text": "Die Teilnehmer:innen lernten, wie man Variablen verwaltet, Listen bearbeitet und Bedingungen in JavaScript programmiert. Auch CSS-Styling wurde intensiv geübt."
+        }
+      ],
+      "gameIds": [
+        "gurken-quest"
+      ]
+    },
+    {
+      "title": "Hackathon - 23. Mai 2025 (Gruppe 3)",
+      "description": "Die dritte Gruppe des Hackathons hat ein anspruchsvolles Jump-&-Run-Spiel im Mario-Stil entwickelt! Die 12-14-jährigen Teilnehmer:innen haben sich mit Spielphysik und Kollisionserkennung beschäftigt.",
+      "highlights": [
+        {
+          "title": "🎮 Platformer-Spiel",
+          "text": "Ein spannendes Jump-&-Run-Spiel mit Plattformen, Powerups und Spielphysik. Steuere den roten Spieler mit den Pfeiltasten und sammle gelbe Powerups für mehr Geschwindigkeit!"
+        },
+        {
+          "title": "💥 Fortgeschrittene Konzepte",
+          "text": "Die Teilnehmer:innen lernten fortgeschrittene Programmierkonzepte wie Spielphysik, Kollisionserkennung, Kamera-Scrolling und Animation mit requestAnimationFrame."
+        }
+      ],
+      "gameIds": [
+        "platformer-game"
+      ]
+    },
+    {
+      "title": "Hackathon - 23. Mai 2025 (Gruppe 4)",
+      "description": "Die vierte Gruppe des Hackathons hat ein modernes Pong-Spiel mit erweiterten Funktionen entwickelt! Die 11-13-jährigen Teilnehmer:innen haben ein klassisches Spielkonzept neu interpretiert.",
+      "highlights": [
+        {
+          "title": "🔥 Pong Deluxe",
+          "text": "Ein modernes Remake des Spieleklassikers Pong mit mehreren Bällen, steigendem Schwierigkeitsgrad und einem Punktesystem. Steuere das Paddle mit der Maus, um die farbigen Bälle abzuwehren!"
+        },
+        {
+          "title": "📊 Spielmechanik",
+          "text": "Die Teilnehmer:innen lernten, wie man Spielmechaniken wie Punktezählung, Geschwindigkeitserhöhung und dynamische Schwierigkeitssteigerung implementiert. Auch Canvas-Animation wurde intensiv behandelt."
+        }
+      ],
+      "gameIds": [
+        "pong-deluxe"
+      ]
+    }
+  ],
+  "future": {
+    "title": "Nächster Hackathon",
+    "text": "Bald gibt es hier noch mehr spannende Spiele!"
+  },
+  "gamesSectionTitle": "Unsere Spiele",
+  "games": [
+    {
+      "id": "car-game",
+      "title": "Car Game",
+      "description": "Steuere dein Auto geschickt durch die Hindernisse und sammle Power-Ups! Ein Spiel, das die Kinder selbst designt und entwickelt haben.",
+      "href": "/hackathon/games/cargame/index.html",
+      "placeholder": "Car Game"
+    },
+    {
+      "id": "jump-game",
+      "title": "Jump Game",
+      "description": "Ein spannendes Jump-&-Run-Spiel mit Power-ups und steigendem Schwierigkeitsgrad. Sammle Luftballons zum Fliegen und Speed-Boosts für extra Geschwindigkeit!",
+      "href": "/hackathon/games/jumpgame/index.html",
+      "placeholder": "Jump Game"
+    },
+    {
+      "id": "kaese-countdown",
+      "title": "Käse Countdown",
+      "description": "Wie viel Zeit bleibt dir noch bis zum Käse? Ein simples, aber unterhaltsames Countdown-Spiel mit überraschendem Ende!",
+      "href": "/hackathon/games/kasegame/index.html",
+      "image": "/hackathon/images/kaesegame.png"
+    },
+    {
+      "id": "gurken-quest",
+      "title": "Gurken-Quest",
+      "description": "Sammle verschiedene Gurkensorten und tausche sie beim Magier Waschbär Kevin gegen Bananen der Weisheit ein! Ein lustiges Sammelspiel für Gurkenliebhaber.",
+      "href": "/hackathon/games/gurkengame/index.html",
+      "image": "/hackathon/images/gurkengame.png"
+    },
+    {
+      "id": "platformer-game",
+      "title": "Platformer Game",
+      "description": "Springe von Plattform zu Plattform, sammle Powerups und vermeide den Absturz! Ein spannendes Jump-&-Run-Spiel im Mario-Stil mit Physik-Engine.",
+      "href": "/hackathon/games/mariogame/index.html",
+      "image": "/hackathon/images/mariogame.png"
+    },
+    {
+      "id": "pong-deluxe",
+      "title": "Pong Deluxe",
+      "description": "Spiele eine moderne Version des Klassikers Pong! Halte die Bälle im Spiel, sammle Punkte und stelle dich der steigenden Herausforderung mit mehreren Bällen gleichzeitig.",
+      "href": "/hackathon/games/ponggame/index.html",
+      "image": "/hackathon/images/ponggame.png"
+    },
+    {
+      "id": "muppet-shooter",
+      "title": "Muppet Shooter",
+      "description": "Klicke die Figuren, sammle Punkte und schaffst du den Highscore in 60 Sekunden?",
+      "href": "/hackathon/games/muppetshooter/index.html",
+      "placeholder": "Muppet Shooter",
+      "badge": "Bonus"
+    }
+  ],
+  "artworkSectionTitle": "KI-generierte Kunstwerke",
+  "artworkIntro": "Während der Workshops und Hackathons haben wir nicht nur Spiele programmiert, sondern auch mit KI Bilder erstellt.",
+  "artworks": [
+    {
+      "title": "Poopcat",
+      "date": "20. September 2024",
+      "image": "/hackathon/images/poopcat.webp",
+      "alt": "KI-generiertes Bild einer fliegenden Katze die Eiscreme pupst",
+      "description": "Eine freundliche, flauschige und knuffige Katze die fliegen kann und Eiscreme pupst! Erstellt mit ChatGPT-4 Vision während unseres ersten KI-Workshops."
+    },
+    {
+      "title": "Die springende Zyklopenpizza",
+      "date": "31. Januar 2025",
+      "image": "/hackathon/images/jumpgame_artwork.webp",
+      "alt": "KI-generiertes Bild einer Zyklopenpizza mit Salami, Peperoni und Chili",
+      "description": "Eine lebendige Pizza mit Armen, Beinen und einem großen Auge! Geschmückt mit Salami, Peperoni und Chili, wurde diese kulinarische Kreatur von den Kindern während des Jump Game Hackathons mit KI zum Leben erweckt."
+    },
+    {
+      "title": "Käse Kunstwerk",
+      "date": "23. Mai 2025",
+      "image": "/hackathon/images/kaesegame.png",
+      "alt": "KI-generiertes Bild zum Käse Countdown Spiel",
+      "description": "Ein köstliches Käse-Kunstwerk, das von Gruppe 1 während des Hackathons am 23. Mai mit KI erstellt wurde. Die perfekte visuelle Ergänzung zum Käse Countdown Spiel!"
+    },
+    {
+      "title": "Waschbär Kevin und die Gurken",
+      "date": "23. Mai 2025",
+      "image": "/hackathon/images/gurkengame.png",
+      "alt": "KI-generiertes Bild zur Gurken-Quest",
+      "description": "Ein fantasievolles Kunstwerk, das von Gruppe 2 während des Hackathons am 23. Mai mit KI erstellt wurde. Es zeigt den weisen Waschbären Kevin, die Hauptfigur der Gurken-Quest!"
+    },
+    {
+      "title": "Platformer Hero",
+      "date": "23. Mai 2025",
+      "image": "/hackathon/images/mariogame.png",
+      "alt": "KI-generiertes Bild zum Platformer Game",
+      "description": "Ein dynamisches Kunstwerk, das von Gruppe 3 während des Hackathons am 23. Mai mit KI erstellt wurde. Es zeigt den Helden des Platformer-Spiels in Action!"
+    },
+    {
+      "title": "Pong Deluxe",
+      "date": "23. Mai 2025",
+      "image": "/hackathon/images/ponggame.png",
+      "alt": "KI-generiertes Bild zum Pong Deluxe Spiel",
+      "description": "Ein futuristisches Kunstwerk, das von Gruppe 4 während des Hackathons am 23. Mai mit KI erstellt wurde. Es zeigt die dynamischen, farbenfrohen Bälle des Pong Deluxe Spiels!"
+    }
+  ]
+}

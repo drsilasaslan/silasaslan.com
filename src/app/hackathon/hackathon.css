@@ -1,0 +1,313 @@
+.hackathon-root {
+  --hack-bg: #fff6e6;
+  --hack-bg-alt: #f2f7ff;
+  --hack-ink: #1d2433;
+  --hack-muted: #475569;
+  --hack-primary: #ff6b6b;
+  --hack-secondary: #2ec4b6;
+  --hack-accent: #ffbe0b;
+  --hack-lilac: #cdb4ff;
+  --hack-card: #ffffff;
+  --hack-border: #e6e0d5;
+  --hack-shadow: rgba(31, 36, 51, 0.12);
+  background: linear-gradient(180deg, #fff6e6 0%, #f2f7ff 45%, #fef1ff 100%);
+  color: var(--hack-ink);
+  font-family: var(--font-hackathon-body), system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+.hackathon-root .hackathon-display {
+  font-family: var(--font-hackathon-display), "Trebuchet MS", system-ui, sans-serif;
+}
+
+.hackathon-root .hackathon-container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hackathon-root .hackathon-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 246, 230, 0.85);
+  border-bottom: 1px solid rgba(230, 224, 213, 0.6);
+}
+
+.hackathon-root .hackathon-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  gap: 16px;
+}
+
+.hackathon-root .hackathon-nav a {
+  text-decoration: none;
+}
+
+.hackathon-root .hackathon-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--hack-ink);
+}
+
+.hackathon-root .hackathon-brand span {
+  background: var(--hack-accent);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hackathon-root .hackathon-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.hackathon-root .hackathon-nav-links a {
+  color: var(--hack-muted);
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(230, 224, 213, 0.8);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hackathon-root .hackathon-nav-links a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(31, 36, 51, 0.12);
+}
+
+.hackathon-root .hackathon-hero {
+  position: relative;
+  padding: 64px 0 40px;
+}
+
+.hackathon-root .hackathon-hero-card {
+  background: var(--hack-card);
+  border-radius: 28px;
+  border: 2px solid var(--hack-border);
+  box-shadow: 0 20px 40px var(--hack-shadow);
+  padding: 32px;
+}
+
+.hackathon-root .hackathon-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 190, 11, 0.2);
+  color: #8a5a00;
+  border: 1px solid rgba(255, 190, 11, 0.4);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hackathon-root .hackathon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hackathon-root .hackathon-button.primary {
+  background: var(--hack-primary);
+  color: white;
+  box-shadow: 0 14px 24px rgba(255, 107, 107, 0.35);
+}
+
+.hackathon-root .hackathon-button.secondary {
+  background: white;
+  color: var(--hack-ink);
+  border: 2px solid var(--hack-border);
+}
+
+.hackathon-root .hackathon-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 30px rgba(31, 36, 51, 0.16);
+}
+
+.hackathon-root .hackathon-section {
+  padding: 48px 0;
+}
+
+.hackathon-root .hackathon-section-title {
+  font-size: clamp(1.75rem, 1.3rem + 1.5vw, 2.5rem);
+  margin-bottom: 20px;
+}
+
+.hackathon-root .hackathon-card {
+  background: var(--hack-card);
+  border-radius: 24px;
+  border: 2px solid var(--hack-border);
+  padding: 24px;
+  box-shadow: 0 18px 30px var(--hack-shadow);
+}
+
+.hackathon-root .hackathon-card.soft {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.hackathon-root .hackathon-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.hackathon-root .hackathon-grid.two {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.hackathon-root .hackathon-grid.three {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.hackathon-root .hackathon-highlight {
+  background: rgba(46, 196, 182, 0.08);
+  border: 1px dashed rgba(46, 196, 182, 0.4);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.hackathon-root .hackathon-game-thumb {
+  height: 140px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(46, 196, 182, 0.2));
+  border: 2px dashed rgba(31, 36, 51, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--hack-muted);
+}
+
+.hackathon-root .hackathon-game-thumb.image {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #fffef9;
+  border: 2px solid var(--hack-border);
+}
+
+.hackathon-root .hackathon-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--hack-lilac);
+  font-size: 12px;
+  font-weight: 700;
+  color: #352963;
+}
+
+.hackathon-root .hackathon-artwork img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  background: #fffef9;
+  border-radius: 18px;
+  border: 2px solid var(--hack-border);
+}
+
+.hackathon-root .hackathon-footer {
+  padding: 32px 0 48px;
+  border-top: 1px solid rgba(230, 224, 213, 0.7);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.hackathon-root .hackathon-footer a {
+  color: var(--hack-muted);
+  text-decoration: none;
+}
+
+.hackathon-root .hackathon-footer a:hover {
+  color: var(--hack-ink);
+}
+
+.hackathon-root .hackathon-float {
+  position: absolute;
+  border-radius: 999px;
+  opacity: 0.6;
+  filter: blur(0.3px);
+  animation: floaty 10s ease-in-out infinite;
+}
+
+.hackathon-root .hackathon-float.one {
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 190, 11, 0.25);
+  top: 40px;
+  right: 12%;
+}
+
+.hackathon-root .hackathon-float.two {
+  width: 160px;
+  height: 160px;
+  background: rgba(46, 196, 182, 0.2);
+  top: 260px;
+  left: -60px;
+  animation-delay: -2s;
+}
+
+.hackathon-root .hackathon-float.three {
+  width: 90px;
+  height: 90px;
+  background: rgba(255, 107, 107, 0.2);
+  bottom: 120px;
+  right: 6%;
+  animation-delay: -4s;
+}
+
+@keyframes floaty {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hackathon-root .hackathon-float,
+  .hackathon-root .hackathon-button,
+  .hackathon-root .hackathon-nav-links a {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hackathon-root .hackathon-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hackathon-root .hackathon-hero {
+    padding-top: 40px;
+  }
+
+  .hackathon-root .hackathon-hero-card {
+    padding: 24px;
+  }
+}
