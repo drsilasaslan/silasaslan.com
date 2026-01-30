@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 👋 Dr. Silas Aslan
 
-## Getting Started
+> Chemiker. Innovator. KI-Enthusiast.
 
-First, run the development server:
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://de.linkedin.com/in/draslan)
+[![X/Twitter](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/draslan_eth)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🧪 Über mich
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ich bin ein Chemiker mit Leidenschaft für künstliche Intelligenz, der zwei Welten zusammenbringt, die scheinbar weit auseinanderliegen. Als Innovation AI.chemist entwickle ich Lösungen an der Schnittstelle von Chemie und maschinellem Lernen.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Meine Reise begann im Labor, wo ich lernte, wie wichtig präzise Methoden und systematisches Denken sind. Diese Grundlagen bilden das Fundament für meine heutige Arbeit an der Schnittstelle von Chemie und KI.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🎯 Kernkompetenzen
 
-## Learn More
+- **🤖 Künstliche Intelligenz** - Entwicklung von ML-Modellen für chemische Prozesse und molekulare Vorhersagen
+- **⚗️ Chemische Innovation** - Neue Materialien und nachhaltige chemische Verfahren für die Industrie  
+- **📊 Projektmanagement** - Bridging von Wissenschaft und Industrie mit agilen Methoden
 
-To learn more about Next.js, take a look at the following resources:
+### 🏆 Highlights
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Promotion in Chemischer Technologie
+- 5+ Jahre Forschungserfahrung
+- Spezialisiert auf Machine Learning für chemische Prozesse
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🌐 Online-Präsenz
 
-## Deploy on Vercel
+- **Website**: [silasaslan.com](https://www.silasaslan.com)
+- **LinkedIn**: [linkedin.com/in/draslan](https://de.linkedin.com/in/draslan)
+- **X/Twitter**: [@draslan_eth](https://x.com/draslan_eth)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*"Taten sprechen lauter als Worte."*
+
+---
+
+### 📧 Kontakt
+
+Für Anfragen zu KI-gestützten chemischen Innovationen, Projektzusammenarbeit oder Vorträge erreichen Sie mich gerne über die oben genannten Kanäle.
+
+---
+
+*Letztmalig aktualisiert: Januar 2026*
