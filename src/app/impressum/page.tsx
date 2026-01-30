@@ -33,8 +33,8 @@ export default function Impressum() {
             </h2>
             <p className="text-[var(--muted)] leading-relaxed">
               Dr. Silas Aslan<br />
-              [Straße und Hausnummer]<br />
-              [PLZ] Karlsruhe<br />
+              Schillerstr. 52<br />
+              76135 Karlsruhe<br />
               Deutschland
             </p>
           </section>
@@ -44,7 +44,7 @@ export default function Impressum() {
               Kontakt
             </h2>
             <p className="text-[var(--muted)] leading-relaxed">
-              E-Mail: [E-Mail-Adresse]<br />
+              E-Mail: silas.aslan(at)gmail(dot)com<br />
               Website: www.silasaslan.com
             </p>
           </section>
@@ -55,8 +55,8 @@ export default function Impressum() {
             </h2>
             <p className="text-[var(--muted)] leading-relaxed">
               Dr. Silas Aslan<br />
-              [Straße und Hausnummer]<br />
-              [PLZ] Karlsruhe<br />
+              Schillerstr. 52<br />
+              76135 Karlsruhe<br />
               Deutschland
             </p>
           </section>

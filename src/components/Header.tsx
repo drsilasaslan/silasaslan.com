@@ -5,9 +5,7 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const kirbyPanelUrl =
-  process.env.NEXT_PUBLIC_KIRBY_PANEL_URL ?? '/kirby/panel';
-const isExternalKirbyPanel = /^https?:\/\//.test(kirbyPanelUrl);
+
 
 const navItems = [
   { href: '#about', label: 'Über mich' },
@@ -16,11 +14,6 @@ const navItems = [
   { href: '#patents', label: 'Patente' },
   { href: '#speaking', label: 'Vorträge' },
   { href: '#contact', label: 'Kontakt' },
-  {
-    href: kirbyPanelUrl,
-    label: 'Intern',
-    external: isExternalKirbyPanel,
-  },
 ];
 
 export default function Header() {
@@ -55,27 +48,15 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) =>
-              item.external ? (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-[var(--muted)] hover:text-[var(--primary)] transition-colors"
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-sm text-[var(--muted)] hover:text-[var(--primary)] transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ),
-            )}
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-sm text-[var(--muted)] hover:text-[var(--primary)] transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
 
           {/* Mobile Menu Button */}
@@ -98,28 +79,16 @@ export default function Header() {
               className="md:hidden overflow-hidden"
             >
               <div className="py-4 space-y-4">
-                {navItems.map((item) =>
-                  item.external ? (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-[var(--muted)] hover:text-[var(--primary)] transition-colors"
-                    >
-                      {item.label}
-                    </a>
-                  ) : (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="block text-[var(--muted)] hover:text-[var(--primary)] transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  ),
-                )}
+                 {navItems.map((item) => (
+                   <Link
+                     key={item.href}
+                     href={item.href}
+                     onClick={() => setIsMobileMenuOpen(false)}
+                     className="block text-[var(--muted)] hover:text-[var(--primary)] transition-colors"
+                   >
+                     {item.label}
+                   </Link>
+                 ))}
               </div>
             </motion.div>
           )}

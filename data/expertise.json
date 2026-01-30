@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Künstliche Intelligenz",
+    "description": "Entwicklung von ML-Modellen für chemische Prozesse und molekulare Vorhersagen.",
+    "icon": "Brain"
+  },
+  {
+    "title": "Chemische Innovation",
+    "description": "Neue Materialien und nachhaltige chemische Verfahren für die Industrie.",
+    "icon": "Flask"
+  },
+  {
+    "title": "Projektmanagement",
+    "description": "Bridging von Wissenschaft und Industrie mit agilen Methoden.",
+    "icon": "Target"
+  }
+]

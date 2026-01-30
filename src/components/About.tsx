@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+const aboutData = require('../../data/about.json');
 
 export default function About() {
   const ref = useRef(null);
@@ -23,7 +24,7 @@ export default function About() {
               Über mich
             </p>
             <h2 className="text-3xl md:text-4xl font-light text-[var(--foreground)]">
-              As a chemist, I get it!
+              {aboutData.title}
             </h2>
           </div>
 
@@ -56,24 +57,24 @@ export default function About() {
             </blockquote>
 
             {/* Quick facts */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-[var(--border)]">
-              <div>
-                <p className="text-2xl font-light text-[var(--primary)]">5</p>
-                <p className="text-sm text-[var(--muted-light)]">Patente</p>
-              </div>
-              <div>
-                <p className="text-2xl font-light text-[var(--primary)]">10+</p>
-                <p className="text-sm text-[var(--muted-light)]">Jahre Erfahrung</p>
-              </div>
-              <div>
-                <p className="text-2xl font-light text-[var(--primary)]">3</p>
-                <p className="text-sm text-[var(--muted-light)]">Sprachen</p>
-              </div>
-              <div>
-                <p className="text-2xl font-light text-[var(--primary)]">1</p>
-                <p className="text-sm text-[var(--muted-light)]">Startup gegründet</p>
-              </div>
-            </div>
+<div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-[var(--border)]">
+<div>
+<p className="text-2xl font-light text-[var(--primary)]">5</p>
+<p className="text-sm text-[var(--muted-light)]">Patente</p>
+</div>
+<div>
+<p className="text-2xl font-light text-[var(--primary)]">10+</p>
+<p className="text-sm text-[var(--muted-light)]">Jahre Erfahrung</p>
+</div>
+<div>
+<p className="text-2xl font-light text-[var(--primary)]">2</p>
+<p className="text-sm text-[var(--muted-light)]">Sprachen</p>
+</div>
+<div>
+<p className="text-2xl font-light text-[var(--primary)]">1</p>
+<p className="text-sm text-[var(--muted-light)]">Startup gegründet</p>
+</div>
+</div>
           </div>
         </motion.div>
       </div>

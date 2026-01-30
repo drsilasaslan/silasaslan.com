@@ -7,7 +7,6 @@ import Patents from '@/components/Patents';
 import Speaking from '@/components/Speaking';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import TestButton from '@/components/TestButton';
 
 export default function Home() {
   return (
@@ -23,7 +22,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      <TestButton />
     </>
   );
 }

@@ -1,9 +1,0 @@
-Sort: 2
-
-----
-
-Uuid: 4sqvydjttngp8fbp
-
-----
-
-Template: portrait

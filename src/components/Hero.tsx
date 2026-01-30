@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowDown, Linkedin, Mail } from 'lucide-react';
+// Dynamic import for JSON data
+const heroData = require('../../data/hero.json');
 
 export default function Hero() {
   return (
@@ -10,7 +12,7 @@ export default function Hero() {
       {/* Background with patina texture */}
       <div className="absolute inset-0">
         <Image
-          src="/images/1744010416113.jpeg"
+          src={heroData.backgroundImage}
           alt="Background"
           fill
           className="object-cover"
@@ -30,23 +32,23 @@ export default function Hero() {
             className="text-center md:text-left"
           >
             <p className="text-[var(--accent-light)] text-sm tracking-widest uppercase mb-4">
-              Innovation AI.chemist
+              {heroData.kicker}
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 leading-tight">
-              Dr. Silas Aslan
+              {heroData.title}
             </h1>
             <p className="text-lg text-white/80 mb-8 max-w-lg leading-relaxed">
-              Chemiker. Innovator. KI-Enthusiast.
+              {heroData.intro}
               <br />
               <span className="text-white/60 text-base">
-                Taten sprechen lauter als Worte.
+                {heroData.tagline}
               </span>
             </p>
 
             {/* Subtle CTA */}
             <div className="flex items-center gap-6 justify-center md:justify-start">
               <a
-                href="https://de.linkedin.com/in/draslan"
+                href={heroData.socialLinks.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-white/70 hover:text-white transition-colors group"
@@ -75,9 +77,9 @@ export default function Hero() {
               {/* Subtle border effect */}
               <div className="absolute -inset-1 bg-gradient-to-br from-[var(--primary)]/30 to-[var(--accent)]/30 rounded-full blur-sm" />
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/10">
-                <Image
-                  src="/images/1696793999286.jpeg"
-                  alt="Dr. Silas Aslan"
+                 <Image
+                   src={heroData.profileImage}
+                   alt="Dr. Silas Aslan"
                   fill
                   className="object-cover"
                   priority

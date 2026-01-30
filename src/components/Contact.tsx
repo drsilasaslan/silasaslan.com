@@ -14,9 +14,9 @@ const contactLinks = [
   },
   {
     icon: Globe,
-    label: 'Website',
-    value: 'silasaslan.com',
-    href: 'https://www.silasaslan.com',
+    label: 'X',
+    value: 'x.com/draslan_eth',
+    href: 'https://x.com/draslan_eth',
   },
   {
     icon: Mail,

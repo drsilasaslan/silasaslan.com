@@ -107,7 +107,7 @@ export default function Speaking() {
               Regelmäßige Inhalte zu KI, Innovation und Digitalisierung
             </p>
             <a
-              href="https://www.silasaslan.com"
+              href="https://medium.com/@silas.aslan"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-[var(--primary)] hover:text-[var(--primary-dark)] transition-colors text-sm"

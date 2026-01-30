@@ -1,13 +1,13 @@
 {
-  "name": "wp_silasaslan",
-  "version": "0.1.0",
+  "name": "silas-aslan-landing",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:kirby": "/opt/homebrew/opt/php@8.4/bin/php -S 127.0.0.1:8001 -t kirby kirby/kirby/router.php",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy": "chmod +x deploy.sh && ./deploy.sh"
   },
   "dependencies": {
     "framer-motion": "^12.23.25",

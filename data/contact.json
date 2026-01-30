@@ -1,0 +1,23 @@
+{
+  "email": "silas.aslan(at)gmail(dot)com",
+  "address": "Schillerstr. 52",
+  "city": "76135 Karlsruhe",
+  "country": "Deutschland",
+  "social": [
+    {
+      "platform": "LinkedIn",
+      "url": "https://de.linkedin.com/in/draslan",
+      "icon": "Linkedin"
+    },
+    {
+      "platform": "X",
+      "url": "https://x.com/draslan_eth", 
+      "icon": "Globe"
+    },
+    {
+      "platform": "XING",
+      "url": "https://www.xing.com/profile/Silas_Aslan",
+      "icon": "Mail"
+    }
+  ]
+}
