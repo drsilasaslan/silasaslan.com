@@ -11,6 +11,7 @@ const navItems = [
   { href: "#career", label: "Karriere" },
   { href: "#patents", label: "Patente" },
   { href: "#speaking", label: "Vorträge" },
+  { href: "/workshop", label: "Workshop" },
   { href: "/hackathon", label: "Hackathon" },
   { href: "#contact", label: "Kontakt" },
 ];

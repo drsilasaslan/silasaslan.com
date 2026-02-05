@@ -35,6 +35,11 @@ Meine Reise begann im Labor, wo ich lernte, wie wichtig präzise Methoden und sy
 
 ---
 
+### 🚀 Deployment-Hinweis
+
+- Deployments laden ausschließlich Inhalte aus `/out` hoch.
+- Daher **immer** `npm run build` ausführen und prüfen, ob die Änderung in `/out` sichtbar ist.
+
 ### 📧 Kontakt
 
 Für Anfragen zu KI-gestützten chemischen Innovationen, Projektzusammenarbeit oder Vorträge erreichen Sie mich gerne über die oben genannten Kanäle.

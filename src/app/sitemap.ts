@@ -12,6 +12,7 @@ const routes = [
   "/hackathon/impressum/",
   "/hackathon/datenschutz/",
   "/hackathon/nutzungsbedingungen/",
+  "/workshop/",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

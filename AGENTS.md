@@ -91,14 +91,15 @@ This is a **Next.js static site** for Dr. Silas Aslan's professional landing pag
 3. **Always check JSON files** before component changes
 4. **Verify favicon and metadata** after changes
 5. **Test locally** before deployment
-6. **Build with `npm run build`** for production
+6. **Build with `npm run build`** before every deploy (deploys upload `/out` only)
+7. **Confirm `/out` contains your change** before deploying (e.g., updated favicon)
 
 ## 🔧 Deployment Process
 
 1. Make changes in development
 2. Test with `npx next dev -p 3006`
-3. Build with `npm run build`
-4. Deploy with `scp -r out/* all-inkl:/www/htdocs/w01fa976/silasaslan.com/`
+3. Build with `npm run build` (refreshes `/out`)
+4. Deploy from `/out` (deploy scripts or `scp -r out/* all-inkl:/www/htdocs/w01fa976/silasaslan.com/`)
 
 ## 📧 Quick Commands
 
