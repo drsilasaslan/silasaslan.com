@@ -12,9 +12,7 @@ export default function HackathonImpressum() {
           Zurück zur Hackathon-Übersicht
         </Link>
         <div className="hackathon-card mt-6">
-          <h1 className="hackathon-display text-3xl font-extrabold mb-6">
-            Impressum
-          </h1>
+          <h1 className="hackathon-display text-3xl font-extrabold mb-6">Impressum</h1>
 
           <section className="space-y-3 text-[var(--hack-muted)]">
             <h2 className="hackathon-display text-xl font-bold text-[var(--hack-ink)]">

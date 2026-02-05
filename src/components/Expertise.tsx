@@ -1,53 +1,35 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { 
-  Brain, 
-  Shield, 
-  Lightbulb, 
-  Users, 
-  Mic, 
-  Settings 
-} from 'lucide-react';
+import { motion, useInView } from "framer-motion";
+import { Brain, Lightbulb, Settings, Shield } from "lucide-react";
+import { useRef } from "react";
 
 const expertiseAreas = [
   {
     icon: Brain,
-    title: 'KI & Digitalisierung',
-    description: 'Generative und diskriminative KI-Integration, ChatGPT, CompanyGPT, No-Code/Low-Code-Plattformen',
+    title: "KI-Enablement im Team",
+    description: "Workshops, konkrete Use Cases und Transfer in den Arbeitsalltag.",
   },
   {
     icon: Shield,
-    title: 'DSGVO-konforme KI',
-    description: 'Datenschutzgerechte KI-Implementierung, GDPR-Compliance, Stakeholder-Testing',
+    title: "Governance & Struktur",
+    description: "Rollen, Prozesse und Datenschutz als Grundlage für verlässliche KI.",
   },
   {
     icon: Lightbulb,
-    title: 'Innovationsscouting',
-    description: 'Identifikation neuer Technologien, Startup-Evaluierung, Technologie-Roadmaps',
-  },
-  {
-    icon: Users,
-    title: 'Netzwerk & Mentoring',
-    description: 'Startup-Mentoring, Fachveranstaltungen, Best-Practice-Austausch',
-  },
-  {
-    icon: Mic,
-    title: 'Events & Speaking',
-    description: 'Konferenz-Vorträge, Webinare, Event-Moderation, Live-Demos',
+    title: "Prototyping & Tools",
+    description: "Schnelle Prototypen, kleine Apps und klare Workflows statt Folien.",
   },
   {
     icon: Settings,
-    title: 'Prozessoptimierung',
-    description: 'Digitalisierung von Abläufen, Automatisierung, Change-Management',
+    title: "Betrieb & Prozessdesign",
+    description: "Automatisierung, Change und pragmatische Umsetzung im Betrieb.",
   },
 ];
 
 export default function Expertise() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section id="expertise" className="py-24 bg-[var(--surface-alt)]">
@@ -85,9 +67,7 @@ export default function Expertise() {
                   <h3 className="text-lg font-medium text-[var(--foreground)] mb-3">
                     {area.title}
                   </h3>
-                  <p className="text-sm text-[var(--muted)] leading-relaxed">
-                    {area.description}
-                  </p>
+                  <p className="text-sm text-[var(--muted)] leading-relaxed">{area.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -101,8 +81,8 @@ export default function Expertise() {
             className="mt-16 text-center"
           >
             <p className="text-[var(--muted)] text-sm">
-              <span className="text-[var(--primary)]">Chemischer Hintergrund:</span>{' '}
-              Organische Halbleiter, PEDOT:PSS Polymere, Thermoelektrik, Printed Electronics
+              <span className="text-[var(--primary)]">Chemischer Hintergrund:</span> Organische
+              Halbleiter, PEDOT:PSS Polymere, Thermoelektrik, Printed Electronics
             </p>
           </motion.div>
         </motion.div>

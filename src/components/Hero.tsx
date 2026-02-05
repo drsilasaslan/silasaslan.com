@@ -1,10 +1,9 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { ArrowDown, Linkedin, Mail } from 'lucide-react';
-// Dynamic import for JSON data
-const heroData = require('../../data/hero.json');
+import { motion } from "framer-motion";
+import { ArrowDown, Linkedin, Mail } from "lucide-react";
+import Image from "next/image";
+import heroData from "../../data/hero.json";
 
 export default function Hero() {
   return (
@@ -14,9 +13,9 @@ export default function Hero() {
         <Image
           src={heroData.backgroundImage}
           alt="Background"
-          fill
+          fill={true}
           className="object-cover"
-          priority
+          priority={true}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[var(--foreground)]/70 via-[var(--foreground)]/50 to-[var(--foreground)]/80" />
       </div>
@@ -40,9 +39,7 @@ export default function Hero() {
             <p className="text-lg text-white/80 mb-8 max-w-lg leading-relaxed">
               {heroData.intro}
               <br />
-              <span className="text-white/60 text-base">
-                {heroData.tagline}
-              </span>
+              <span className="text-white/60 text-base">{heroData.tagline}</span>
             </p>
 
             {/* Subtle CTA */}
@@ -77,12 +74,12 @@ export default function Hero() {
               {/* Subtle border effect */}
               <div className="absolute -inset-1 bg-gradient-to-br from-[var(--primary)]/30 to-[var(--accent)]/30 rounded-full blur-sm" />
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/10">
-                 <Image
-                   src={heroData.profileImage}
-                   alt="Dr. Silas Aslan"
-                  fill
+                <Image
+                  src={heroData.profileImage}
+                  alt="Dr. Silas Aslan"
+                  fill={true}
                   className="object-cover"
-                  priority
+                  priority={true}
                 />
               </div>
             </div>
@@ -103,7 +100,7 @@ export default function Hero() {
             <span className="text-xs tracking-widest uppercase mb-2">Mehr erfahren</span>
             <motion.div
               animate={{ y: [0, 8, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5 }}
+              transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5 }}
             >
               <ArrowDown size={20} />
             </motion.div>

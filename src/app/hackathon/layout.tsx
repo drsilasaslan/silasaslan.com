@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Baloo_2, Nunito } from "next/font/google";
+import type { ReactNode } from "react";
 import "./hackathon.css";
 
 const baloo = Baloo_2({
@@ -19,25 +20,15 @@ export const metadata: Metadata = {
     default: "Hackathon Browsergames | Dr. Silas Aslan",
     template: "%s | Hackathon",
   },
-  description:
-    "Hackathons, Workshops und Browsergames von Kindern mit ChatGPT.",
+  description: "Hackathons, Workshops und Browsergames von Kindern mit ChatGPT.",
   openGraph: {
     title: "Hackathon Browsergames | Dr. Silas Aslan",
-    description:
-      "Spiele, Kunstwerke und Highlights aus Hackathons und Workshops für Kinder.",
+    description: "Spiele, Kunstwerke und Highlights aus Hackathons und Workshops für Kinder.",
     type: "website",
     locale: "de_DE",
   },
 };
 
-export default function HackathonLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <div className={`${baloo.variable} ${nunito.variable} hackathon-root`}>
-      {children}
-    </div>
-  );
+export default function HackathonLayout({ children }: { children: ReactNode }) {
+  return <div className={`${baloo.variable} ${nunito.variable} hackathon-root`}>{children}</div>;
 }

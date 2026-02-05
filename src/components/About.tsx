@@ -1,13 +1,15 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-const aboutData = require('../../data/about.json');
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import aboutData from "../../data/about.json";
+import nowData from "../../data/now.json";
 
 export default function About() {
+  const { title, subtitle, intro, focus, outlook } = aboutData;
+  const { entries } = nowData;
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section id="about" className="py-24 bg-[var(--surface)]">
@@ -23,58 +25,41 @@ export default function About() {
             <p className="text-[var(--primary)] text-sm tracking-widest uppercase mb-2">
               Über mich
             </p>
-            <h2 className="text-3xl md:text-4xl font-light text-[var(--foreground)]">
-              {aboutData.title}
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-light text-[var(--foreground)]">{title}</h2>
+            <p className="text-[var(--muted)] mt-3">{subtitle}</p>
           </div>
 
           {/* Content */}
-          <div className="space-y-6 text-[var(--muted)] leading-relaxed">
-            <p className="text-lg">
-              Mit einem Doktortitel in Chemie vom KIT und über einem Jahrzehnt Erfahrung 
-              an der Schnittstelle von Wissenschaft, Technologie und Innovation, 
-              bringe ich eine einzigartige Perspektive in die Welt der KI und Digitalisierung.
-            </p>
-            
-            <p>
-              Als Prokurist und Innovationsmanager bei der SWK-NOVATEC GmbH treibe ich 
-              die KI-Integration und das Innovationsscouting für die Stadtwerke Karlsruhe voran. 
-              Mein Fokus liegt auf DSGVO-konformen KI-Lösungen, die echten Mehrwert schaffen – 
-              nicht auf Buzzwords.
-            </p>
+          <div className="space-y-8 text-[var(--muted)] leading-relaxed">
+            <div>
+              <p className="text-[var(--primary)] text-xs tracking-widest uppercase mb-3">
+                Worum es mir geht
+              </p>
+              <p className="text-lg">{intro}</p>
+            </div>
 
-            <p>
-              Meine Reise führte mich von der Grundlagenforschung über die Startup-Gründung 
-              (otego GmbH) bis hin zur Rolle als Innovationstreiber im öffentlichen Sektor. 
-              Diese Vielfalt prägt meinen Ansatz: pragmatisch, wissenschaftlich fundiert, 
-              aber immer mit einem Augenzwinkern.
-            </p>
+            <div>
+              <p className="text-[var(--primary)] text-xs tracking-widest uppercase mb-3">
+                KI im Alltag
+              </p>
+              <p>
+                {focus} {outlook}
+              </p>
+            </div>
 
-            {/* Subtle quote */}
-            <blockquote className="border-l-2 border-[var(--primary)]/30 pl-6 my-8 italic text-[var(--foreground)]/70">
-              &ldquo;Es ist nicht wichtig, was man mitbringt – 
-              sondern was man daraus macht.&rdquo;
-            </blockquote>
-
-            {/* Quick facts */}
-<div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-[var(--border)]">
-<div>
-<p className="text-2xl font-light text-[var(--primary)]">5</p>
-<p className="text-sm text-[var(--muted-light)]">Patente</p>
-</div>
-<div>
-<p className="text-2xl font-light text-[var(--primary)]">10+</p>
-<p className="text-sm text-[var(--muted-light)]">Jahre Erfahrung</p>
-</div>
-<div>
-<p className="text-2xl font-light text-[var(--primary)]">2</p>
-<p className="text-sm text-[var(--muted-light)]">Sprachen</p>
-</div>
-<div>
-<p className="text-2xl font-light text-[var(--primary)]">1</p>
-<p className="text-sm text-[var(--muted-light)]">Startup gegründet</p>
-</div>
-</div>
+            <div className="pt-6 border-t border-[var(--border)]">
+              <p className="text-[var(--primary)] text-xs tracking-widest uppercase mb-4">
+                Aktuell
+              </p>
+              <ul className="grid gap-3 text-sm md:text-base">
+                {entries.map((entry) => (
+                  <li key={entry.title} className="flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--primary)]" />
+                    <span>{entry.title}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </motion.div>
       </div>

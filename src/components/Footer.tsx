@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -29,9 +29,7 @@ export default function Footer() {
           </div>
 
           {/* Tagline */}
-          <p className="text-white/30 text-xs">
-            Innovation AI.chemist – as a chemist, I get it!
-          </p>
+          <p className="text-white/30 text-xs">Innovation AI.chemist – Chemie trifft Alltag.</p>
         </div>
       </div>
     </footer>

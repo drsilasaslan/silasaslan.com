@@ -1,11 +1,14 @@
 {
-  "title": "Über mich",
-  "subtitle": "Chemie trifft Innovation",
-  "intro": "Als Chemiker mit Leidenschaft für künstliche Intelligenz bringe ich zwei Welten zusammen, die scheinbar weit auseinanderliegen.",
-  "story": "Meine Reise begann im Labor, wo ich lernte, wie wichtig präzise Methoden und systematisches Denken sind. Diese Grundlagen bilden das Fundament für meine heutige Arbeit an der Schnittstelle von Chemie und KI.",
+  "title": "Zwischen Alltag und KI",
+  "subtitle": "Menschenzentrierte Innovation",
+  "intro": "Ich arbeite dort, wo Technik auf Alltag trifft – und wo gute Ideen an der Realität geprüft werden müssen.",
+  "story": "Als Chemiker und Innovationsmanager bewege ich mich zwischen Forschung, Unternehmenspraxis und KI-Experimenten. Ich baue lieber, als ich erkläre: Prototypen, Systeme, Abläufe. Nicht um zu beeindrucken, sondern um Dinge in die Umsetzung zu bringen.",
+  "focus": "Mein Fokus liegt auf KI, die funktioniert – Enablement, Governance und Prototyping für Teams im öffentlichen Umfeld. Kein Hype, sondern Struktur, Klarheit und echte Wirkung. Gleichzeitig bleibe ich neugierig und experimentiere privat weiter – weil genau dort oft die besten Impulse entstehen.",
+  "outlook": "Wenn ich über KI spreche, geht es mir nicht um Zukunftsversprechen, sondern um Gegenwart: Was heute schon geht, was sinnvoll ist, und was man besser lassen sollte.",
+  "highlightsTitle": "Aktuell",
   "highlights": [
-    "Promotion in Chemischer Technologie",
-    "5+ Jahre Forschungserfahrung",
-    "Spezialisiert auf Machine Learning für chemische Prozesse"
+    "KI-Transformation im kommunalen Umfeld",
+    "Workshops & Enablement für Teams und Führung",
+    "OTONGO: Agenten, lokale Modelle, prototypisches Produktdenken"
   ]
 }

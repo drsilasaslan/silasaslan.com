@@ -1,34 +1,33 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { Linkedin, Mail, Globe, MapPin } from 'lucide-react';
+import { motion, useInView } from "framer-motion";
+import { Globe, Linkedin, Mail, MapPin } from "lucide-react";
+import { useRef } from "react";
 
 const contactLinks = [
   {
     icon: Linkedin,
-    label: 'LinkedIn',
-    value: 'de.linkedin.com/in/draslan',
-    href: 'https://de.linkedin.com/in/draslan',
+    label: "LinkedIn",
+    value: "de.linkedin.com/in/draslan",
+    href: "https://de.linkedin.com/in/draslan",
   },
   {
     icon: Globe,
-    label: 'X',
-    value: 'x.com/draslan_eth',
-    href: 'https://x.com/draslan_eth',
+    label: "X",
+    value: "x.com/draslan_eth",
+    href: "https://x.com/draslan_eth",
   },
   {
     icon: Mail,
-    label: 'XING',
-    value: 'xing.com/profile/Silas_Aslan',
-    href: 'https://www.xing.com/profile/Silas_Aslan',
+    label: "XING",
+    value: "xing.com/profile/Silas_Aslan",
+    href: "https://www.xing.com/profile/Silas_Aslan",
   },
 ];
 
 export default function Contact() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section id="contact" className="py-24 bg-[var(--foreground)]">
@@ -41,14 +40,10 @@ export default function Contact() {
         >
           {/* Section Header */}
           <div className="mb-16 text-center">
-            <p className="text-[var(--primary)] text-sm tracking-widest uppercase mb-2">
-              Kontakt
-            </p>
-            <h2 className="text-3xl md:text-4xl font-light text-white">
-              Lass uns reden
-            </h2>
+            <p className="text-[var(--primary)] text-sm tracking-widest uppercase mb-2">Kontakt</p>
+            <h2 className="text-3xl md:text-4xl font-light text-white">Austausch statt Pitch</h2>
             <p className="mt-4 text-white/60 max-w-md mx-auto">
-              Für echte Gespräche in einer informationsüberfluteten Welt.
+              Ideen, Fragen, konkrete Projekte – kurz, ehrlich und direkt.
             </p>
           </div>
 

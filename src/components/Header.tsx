@@ -1,19 +1,18 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-
-
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const navItems = [
-  { href: '#about', label: 'Über mich' },
-  { href: '#expertise', label: 'Expertise' },
-  { href: '#career', label: 'Karriere' },
-  { href: '#patents', label: 'Patente' },
-  { href: '#speaking', label: 'Vorträge' },
-  { href: '#contact', label: 'Kontakt' },
+  { href: "#about", label: "Über mich" },
+  { href: "#expertise", label: "Expertise" },
+  { href: "#career", label: "Karriere" },
+  { href: "#patents", label: "Patente" },
+  { href: "#speaking", label: "Vorträge" },
+  { href: "/hackathon", label: "Hackathon" },
+  { href: "#contact", label: "Kontakt" },
 ];
 
 export default function Header() {
@@ -24,16 +23,14 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-sm shadow-sm'
-          : 'bg-transparent'
+        isScrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
       }`}
     >
       <nav className="max-w-6xl mx-auto px-6 py-4">
@@ -61,6 +58,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
+            type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 text-[var(--foreground)]"
             aria-label="Toggle menu"
@@ -74,21 +72,21 @@ export default function Header() {
           {isMobileMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden overflow-hidden"
             >
               <div className="py-4 space-y-4">
-                 {navItems.map((item) => (
-                   <Link
-                     key={item.href}
-                     href={item.href}
-                     onClick={() => setIsMobileMenuOpen(false)}
-                     className="block text-[var(--muted)] hover:text-[var(--primary)] transition-colors"
-                   >
-                     {item.label}
-                   </Link>
-                 ))}
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-[var(--muted)] hover:text-[var(--primary)] transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
               </div>
             </motion.div>
           )}

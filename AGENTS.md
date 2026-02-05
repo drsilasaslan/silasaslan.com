@@ -2,6 +2,12 @@
 
 This document defines the specialized agents available for this project and their roles, capabilities, and usage guidelines.
 
+## Persona Alignment
+
+For tone, voice, and writing cues that reflect Dr. Silas Aslan’s personality, use:
+
+- `AGENTS-DETAILS.md`
+
 ## 🤖 Available Agents
 
 ### 1. General Agent (`general`)

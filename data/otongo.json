@@ -1,0 +1,14 @@
+{
+  "kicker": "OTONGO",
+  "title": "KI-natives Experiment",
+  "intro": "OTONGO ist mein Reallabor für Agenten, Prozesse und ruhige Technologie. Kein Produktversprechen, sondern ein System im Aufbau.",
+  "pillars": [
+    "Agenten statt Abteilungen",
+    "Klarheit statt Hype",
+    "Ruhige Technologie im Echtbetrieb"
+  ],
+  "cta": {
+    "label": "Zum Experiment",
+    "href": "https://otongo.net"
+  }
+}

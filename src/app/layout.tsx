@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import type { ReactNode } from "react";
 import "./globals.css";
 import CookieBanner from "@/components/CookieBanner";
 
@@ -10,8 +11,17 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Dr. Silas Aslan | Innovation AI.chemist",
-  description: "Chemiker. Innovator. KI-Enthusiast. Prokurist & Innovationsmanager bei SWK-NOVATEC GmbH. Expertise in KI, Digitalisierung und Innovationsscouting.",
-  keywords: ["Dr. Silas Aslan", "Innovation", "KI", "Chemie", "Digitalisierung", "Karlsruhe", "SWK-NOVATEC"],
+  description:
+    "Chemiker. Innovator. KI-Enthusiast. Prokurist & Innovationsmanager bei SWK-NOVATEC GmbH. Expertise in KI, Digitalisierung und Innovationsscouting.",
+  keywords: [
+    "Dr. Silas Aslan",
+    "Innovation",
+    "KI",
+    "Chemie",
+    "Digitalisierung",
+    "Karlsruhe",
+    "SWK-NOVATEC",
+  ],
   authors: [{ name: "Dr. Silas Aslan" }],
   icons: {
     icon: "/favicon.ico",
@@ -46,7 +56,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="de" dir="ltr">

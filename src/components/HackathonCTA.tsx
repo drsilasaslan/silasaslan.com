@@ -5,8 +5,14 @@ export default function HackathonCTA() {
     <section className="py-12">
       <div className="max-w-6xl mx-auto px-6">
         <div className="relative overflow-hidden rounded-2xl border border-[var(--border)] bg-white p-8 md:p-10">
-          <div className="absolute -top-12 -right-12 h-36 w-36 rounded-full bg-[var(--accent-light)]/30" aria-hidden />
-          <div className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-[var(--primary)]/20" aria-hidden />
+          <div
+            className="absolute -top-12 -right-12 h-36 w-36 rounded-full bg-[var(--accent-light)]/30"
+            aria-hidden={true}
+          />
+          <div
+            className="absolute -bottom-10 -left-10 h-32 w-32 rounded-full bg-[var(--primary)]/20"
+            aria-hidden={true}
+          />
 
           <div className="relative flex flex-col md:flex-row md:items-center gap-6">
             <div className="flex-1">
@@ -17,8 +23,8 @@ export default function HackathonCTA() {
                 Hackathon Browsergames von Kindern
               </h2>
               <p className="text-[var(--muted)] mt-3 max-w-2xl">
-                Einblicke in Workshops, Spiele und KI-Kunst, die gemeinsam mit
-                Kindern entwickelt wurden.
+                Einblicke in Workshops, Spiele und KI-Kunst, die gemeinsam mit Kindern entwickelt
+                wurden.
               </p>
             </div>
             <Link

@@ -52,9 +52,7 @@
           "text": "Nach dem Podcast entwickelten die Kinder gemeinsam ein Rennspiel mit HTML und JavaScript. Sie wählten die Farben selbst aus: ein weißes Auto auf babyblauer Straße, mit hellblauen Boostern und dunkelblauen Hindernissen."
         }
       ],
-      "gameIds": [
-        "car-game"
-      ]
+      "gameIds": ["car-game"]
     },
     {
       "title": "Hackathon - 31. Januar 2025",
@@ -77,9 +75,7 @@
           "text": "Die kreative Idee einer \"Zyklopen-Pizza\" mit Armen, Beinen und rollenden Augen wurde mit KI zum Leben erweckt - ein perfektes Maskottchen für das Jump Game!"
         }
       ],
-      "gameIds": [
-        "jump-game"
-      ]
+      "gameIds": ["jump-game"]
     },
     {
       "title": "Hackathon - 23. Mai 2025 (Gruppe 1)",
@@ -94,9 +90,7 @@
           "text": "Die Teilnehmer:innen lernten, wie man mit JavaScript einen Countdown programmiert und wie man Weiterleitungen zu anderen Webseiten einbaut."
         }
       ],
-      "gameIds": [
-        "kaese-countdown"
-      ]
+      "gameIds": ["kaese-countdown"]
     },
     {
       "title": "Hackathon - 23. Mai 2025 (Gruppe 2)",
@@ -111,9 +105,7 @@
           "text": "Die Teilnehmer:innen lernten, wie man Variablen verwaltet, Listen bearbeitet und Bedingungen in JavaScript programmiert. Auch CSS-Styling wurde intensiv geübt."
         }
       ],
-      "gameIds": [
-        "gurken-quest"
-      ]
+      "gameIds": ["gurken-quest"]
     },
     {
       "title": "Hackathon - 23. Mai 2025 (Gruppe 3)",
@@ -128,9 +120,7 @@
           "text": "Die Teilnehmer:innen lernten fortgeschrittene Programmierkonzepte wie Spielphysik, Kollisionserkennung, Kamera-Scrolling und Animation mit requestAnimationFrame."
         }
       ],
-      "gameIds": [
-        "platformer-game"
-      ]
+      "gameIds": ["platformer-game"]
     },
     {
       "title": "Hackathon - 23. Mai 2025 (Gruppe 4)",
@@ -145,9 +135,7 @@
           "text": "Die Teilnehmer:innen lernten, wie man Spielmechaniken wie Punktezählung, Geschwindigkeitserhöhung und dynamische Schwierigkeitssteigerung implementiert. Auch Canvas-Animation wurde intensiv behandelt."
         }
       ],
-      "gameIds": [
-        "pong-deluxe"
-      ]
+      "gameIds": ["pong-deluxe"]
     }
   ],
   "future": {

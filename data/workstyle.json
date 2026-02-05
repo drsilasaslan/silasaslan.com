@@ -1,0 +1,23 @@
+{
+  "kicker": "Arbeitsweise",
+  "title": "So treffe ich Entscheidungen",
+  "subtitle": "Kurze Zyklen, klare Filter, systemischer Blick.",
+  "steps": [
+    {
+      "title": "Signal aufnehmen",
+      "text": "Ideen landen sofort im System, nicht im Kopf."
+    },
+    {
+      "title": "Schnell testen",
+      "text": "Ein erster Prototyp zählt mehr als eine perfekte Theorie."
+    },
+    {
+      "title": "Systemisch bewerten",
+      "text": "Was ersetzt es? Wo reduziert es Reibung?"
+    },
+    {
+      "title": "In OTONGO verankern",
+      "text": "Dokumentieren, automatisieren, weitergeben."
+    }
+  ]
+}

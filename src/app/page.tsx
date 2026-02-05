@@ -1,13 +1,12 @@
-import Header from '@/components/Header';
-import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Expertise from '@/components/Expertise';
-import Career from '@/components/Career';
-import Patents from '@/components/Patents';
-import Speaking from '@/components/Speaking';
-import HackathonCTA from '@/components/HackathonCTA';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
+import About from "@/components/About";
+import Career from "@/components/Career";
+import Contact from "@/components/Contact";
+import Expertise from "@/components/Expertise";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import Patents from "@/components/Patents";
+import Speaking from "@/components/Speaking";
 
 export default function Home() {
   return (
@@ -20,7 +19,6 @@ export default function Home() {
         <Career />
         <Patents />
         <Speaking />
-        <HackathonCTA />
         <Contact />
       </main>
       <Footer />

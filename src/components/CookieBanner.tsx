@@ -1,37 +1,65 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { AnimatePresence, motion } from "framer-motion";
+import { X } from "lucide-react";
+import { useSyncExternalStore } from "react";
+
+const consentKey = "cookie-consent";
+
+const getSnapshot = () => {
+  if (typeof window === "undefined") {
+    return false;
+  }
+  return !localStorage.getItem(consentKey);
+};
+
+const getServerSnapshot = () => false;
+
+const subscribe = (callback: () => void) => {
+  if (typeof window === "undefined") {
+    return () => undefined;
+  }
+  window.addEventListener("cookie-consent-change", callback);
+  window.addEventListener("storage", callback);
+  return () => {
+    window.removeEventListener("cookie-consent-change", callback);
+    window.removeEventListener("storage", callback);
+  };
+};
+
+const notifyConsentChange = () => {
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new Event("cookie-consent-change"));
+  }
+};
 
 export default function CookieBanner() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const consent = localStorage.getItem('cookie-consent');
-    if (!consent) {
-      setIsVisible(true);
-    }
-  }, []);
+  const isVisible = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   const acceptAll = () => {
-    localStorage.setItem('cookie-consent', JSON.stringify({
-      necessary: true,
-      analytics: true,
-      marketing: false,
-      timestamp: new Date().toISOString(),
-    }));
-    setIsVisible(false);
+    localStorage.setItem(
+      consentKey,
+      JSON.stringify({
+        necessary: true,
+        analytics: true,
+        marketing: false,
+        timestamp: new Date().toISOString(),
+      }),
+    );
+    notifyConsentChange();
   };
 
   const acceptNecessary = () => {
-    localStorage.setItem('cookie-consent', JSON.stringify({
-      necessary: true,
-      analytics: false,
-      marketing: false,
-      timestamp: new Date().toISOString(),
-    }));
-    setIsVisible(false);
+    localStorage.setItem(
+      consentKey,
+      JSON.stringify({
+        necessary: true,
+        analytics: false,
+        marketing: false,
+        timestamp: new Date().toISOString(),
+      }),
+    );
+    notifyConsentChange();
   };
 
   return (
@@ -46,10 +74,9 @@ export default function CookieBanner() {
         >
           <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-xl border border-[var(--border)] p-6">
             <div className="flex items-start justify-between gap-4 mb-4">
-              <h3 className="text-lg font-medium text-[var(--foreground)]">
-                Cookie-Einstellungen
-              </h3>
+              <h3 className="text-lg font-medium text-[var(--foreground)]">Cookie-Einstellungen</h3>
               <button
+                type="button"
                 onClick={acceptNecessary}
                 className="text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
                 aria-label="Schließen"
@@ -57,24 +84,27 @@ export default function CookieBanner() {
                 <X size={20} />
               </button>
             </div>
-            
+
             <p className="text-sm text-[var(--muted)] mb-6">
-              Diese Website verwendet Cookies, um Ihnen die bestmögliche Erfahrung zu bieten. 
-              Notwendige Cookies sind für die Grundfunktionen der Website erforderlich. 
-              Weitere Informationen finden Sie in unserer{' '}
+              Diese Website verwendet Cookies, um Ihnen die bestmögliche Erfahrung zu bieten.
+              Notwendige Cookies sind für die Grundfunktionen der Website erforderlich. Weitere
+              Informationen finden Sie in unserer{" "}
               <a href="/datenschutz" className="text-[var(--primary)] hover:underline">
                 Datenschutzerklärung
-              </a>.
+              </a>
+              .
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
               <button
+                type="button"
                 onClick={acceptNecessary}
                 className="px-6 py-2.5 text-sm border border-[var(--border)] rounded-lg text-[var(--foreground)] hover:bg-[var(--surface-alt)] transition-colors"
               >
                 Nur notwendige
               </button>
               <button
+                type="button"
                 onClick={acceptAll}
                 className="px-6 py-2.5 text-sm bg-[var(--primary)] text-white rounded-lg hover:bg-[var(--primary-dark)] transition-colors"
               >

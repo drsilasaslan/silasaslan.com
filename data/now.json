@@ -1,0 +1,19 @@
+{
+  "kicker": "Log",
+  "title": "Aktuell",
+  "subtitle": "Notizen aus dem laufenden Betrieb.",
+  "entries": [
+    {
+      "title": "KI-Transformation im kommunalen Kontext",
+      "text": "Struktur, Rollen und Enablement statt Tool-Hype."
+    },
+    {
+      "title": "OTONGO wächst weiter",
+      "text": "Agentenarchitektur, lokale Modelle, systemische Pflege."
+    },
+    {
+      "title": "CLI-first arbeiten",
+      "text": "Fokus, Geschwindigkeit, weniger Oberfläche."
+    }
+  ]
+}

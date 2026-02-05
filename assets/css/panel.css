@@ -1,7 +1,7 @@
 :root {
-  --panel-bg: radial-gradient(circle at top right, rgba(61, 139, 139, 0.18), transparent 45%),
-      radial-gradient(circle at 20% 20%, rgba(196, 120, 90, 0.08), transparent 40%),
-      #f6f8fb;
+  --panel-bg:
+    radial-gradient(circle at top right, rgba(61, 139, 139, 0.18), transparent 45%),
+    radial-gradient(circle at 20% 20%, rgba(196, 120, 90, 0.08), transparent 40%), #f6f8fb;
   --panel-card-bg: #ffffff;
   --panel-primary: #3d8b8b;
   --panel-primary-dark: #2c6a6a;
@@ -15,8 +15,8 @@
 #kirby-login body,
 .k-panel-login body {
   background: var(--panel-bg) !important;
-  font-family: 'Inter', 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', sans-serif !important;
+  font-family:
+    "Inter", "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   color: var(--panel-foreground);
 }
 
@@ -30,7 +30,7 @@
 }
 
 .k-panel-login .k-login-view::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at 70% 20%, rgba(196, 120, 90, 0.2), transparent 55%);
@@ -54,7 +54,7 @@
 }
 
 .k-panel-login .k-login::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 2px;
   border-radius: 24px;
@@ -63,7 +63,7 @@
 }
 
 .k-panel-login .k-login::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border-radius: 24px;
@@ -84,7 +84,7 @@
 }
 
 .k-panel-login .k-login-logo::after {
-  content: 'Dr. Silas Aslan';
+  content: "Dr. Silas Aslan";
   letter-spacing: 0.45em;
   text-transform: uppercase;
   font-size: 0.82rem;
@@ -93,7 +93,7 @@
 }
 
 .k-panel-login .k-login-logo::before {
-  content: 'Panel Access';
+  content: "Panel Access";
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -123,7 +123,10 @@
   background: var(--panel-card-bg) !important;
   box-shadow: none !important;
   color: var(--panel-foreground) !important;
-  transition: border 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  transition:
+    border 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .k-panel-login input.k-field-input:focus {
@@ -140,7 +143,10 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 0.8rem;
-  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
   border: none;
   box-shadow: 0 15px 30px rgba(61, 139, 139, 0.25);
 }
@@ -198,7 +204,7 @@
 }
 
 .k-panel-login .k-field[data-theme="input"]::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: auto 12px -6px;
   height: 6px;
