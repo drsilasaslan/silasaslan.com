@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   reactCompiler: true,
+  turbopack: {
+    root: process.cwd(),
+  },
 };
 
 export default nextConfig;

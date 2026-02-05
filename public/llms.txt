@@ -1,0 +1,15 @@
+# /llms.txt
+# Content metadata for LLM crawlers
+
+Title: Dr. Silas Aslan – Innovation AI.chemist
+Description: Personal website covering KI, Innovation, Governance, Enablement und Prototyping.
+Primary Topics: Künstliche Intelligenz, Innovation, KI-Governance, Enablement, Prototyping, Digitalisierung
+Authority: Founder-authored professional profile and project context
+Citation Format: "Dr. Silas Aslan (silasaslan.com)"
+Last Updated: 2026-02-05
+
+# High-value content paths
+/
+/hackathon/
+/impressum/
+/datenschutz/
